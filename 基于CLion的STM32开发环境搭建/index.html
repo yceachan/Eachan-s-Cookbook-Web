@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>-基于Clion的开发环境搭建 - Eachan_s_CookBook</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "-\u57fa\u4e8eClion\u7684\u5f00\u53d1\u73af\u5883\u642d\u5efa";
+        var mkdocs_page_input_path = "\u57fa\u4e8eCLion\u7684STM32\u5f00\u53d1\u73af\u5883\u642d\u5efa.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Eachan_s_CookBook
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="#">-Digital</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="#">-数字设计与计算机体系结构</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">-数字逻辑</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">-体系结构</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">-FPGA</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../none/">-VScode环境搭建</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">-Embedded</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">-ModerenSTM32</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">-基于Clion的开发环境搭建</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#arm-none-eabi-gcc">arm-none-eabi-gcc</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#openocd">openOCD</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mingw32">MinGW32</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mingw-w64">MinGW-w64</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../%E5%9F%BA%E4%BA%8EEIDE_vscode%E7%9A%84%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">-基于EIDE的开发环境搭建</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">-ARM</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../CortexM%E5%86%85%E6%A0%B8%E6%9C%AD%E8%AE%B0/">-ARM内存模型</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Eachan_s_CookBook</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Documentation</li>
+          <li class="breadcrumb-item">-Embedded</li>
+          <li class="breadcrumb-item">-ModerenSTM32</li>
+      <li class="breadcrumb-item active">-基于Clion的开发环境搭建</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <blockquote>
+<p>Before：mdk的ui和编辑体验属实让人难以接受，而vs Code + keil的解决方案仍是没有解决C的<strong>刀耕火种</strong>式的开发体验。</p>
+<p>单片机开发经历了汇编，寄存器c51，库函数时代，笔者还是觉得这些开发方式有些<strong>刀耕火种</strong>，也比较消磨学习的动力。甚至乎笔者觉得Arduino的类objective-C 也还不够方便。（想用stl捏）</p>
+<p>于是折腾半天，终于配置好了这套CLION+CubeMx+OpenOcd，现分享学习过程。</p>
+<p>以cubeMX适配的stm32平台为例，使用Clion 进行 基于armgcc进行 现代的 嵌入式 应用开发的前置，在此应用EIDE文档：</p>
+<p>当然只需要知道一个粗略的通识即可，嵌入式开发 也是 C/C++ 项目 的最佳实践之一，对以下概念，可以在嵌入式开发中遇到阻碍时获得更深刻的认知了解。</p>
+<ul>
+<li>
+<p><strong>确保您熟悉 c/c++ 项目的基本构建过程</strong>：</p>
+</li>
+<li>
+<p>知道什么是 <code>compiler, toolchain</code></p>
+</li>
+<li>知道什么是 <code>IncludePath, Preprocessor Defines ....</code></li>
+<li>知道什么是 <code>linker script, armcc scatter files</code></li>
+</ul>
+<p>详细配置可参考如下文档。</p>
+<p>Reference：</p>
+<p><a href="https://www.zhihu.com/people/zhi-hui-64-54">配置CLion用于STM32开发【优雅の嵌入式开发</a>](<a href="https://zhuanlan.zhihu.com/p/145801160">配置CLion用于STM32开发【优雅の嵌入式开发】 - 知乎 (zhihu.com)</a>)</p>
+<p><a href="https://cloud.tencent.com/developer/article/1840792">Windows上使用 OpenOCD 给 STM32 下载程序 - 腾讯云开发者社区-腾讯云 (tencent.com)</a>)</p>
+<p><a href="https://zhuanlan.zhihu.com/p/160183640">在CLion中开发STM32 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<p>工具链：</p>
+<p>CLion + armgcc  + Cmake + openOCD</p>
+<p>CubeMx + HAL</p>
+<h1 id="_1">工具链下载</h1>
+<h2 id="arm-none-eabi-gcc"><strong>arm-none-eabi-gcc</strong></h2>
+<p>Windows到这里下载：<a href="https://link.zhihu.com/?target=https%3A//developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads</a> ，选择ZIP压缩包形式的：</p>
+<h2 id="openocd"><strong>openOCD</strong></h2>
+<p><a href="https://github.com/openocd-org/openocd">openocd-org/openocd: Official OpenOCD Read-Only Mirror (no pull requests) (github.com)</a> 官方GIthub开源库，releases中下载</p>
+<h2 id="mingw32"><strong>MinGW</strong>32</h2>
+<p>请注意区别MinGW32 与MinGW-w64，前者已经停止维护，</p>
+<p><strong>MinGW</strong>32下载地址<a href="https://osdn.net/projects/mingw/releases/">Download File List - MinGW - Minimalist GNU for Windows - OSDN</a></p>
+<p>可以参阅[<a href="https://www.cnblogs.com/findumars/p/7492636.html">科普]MinGW vs MinGW-W64及其它（比较有意思，来自mingw吧） - findumars - 博客园 (cnblogs.com)</a></p>
+<p>笔者在下载这个工具集时，<strong>频繁报错msys下载失败</strong>。不过还是可以进行开发，实际用时发现有些问题，比如搜索不到一些C++库的路径，需要笔者手动添加搜索路径"armgcc/include"</p>
+<p>所以笔者对这个工具集不是很放心。</p>
+<p>关于MSYS的参阅<a href="https://zhuanlan.zhihu.com/p/266448826">使用MSYS的一些经验 - 知乎 (zhihu.com)</a></p>
+<h2 id="mingw-w64">MinGW-w64</h2>
+<p>根据笔者的检索结果，MinGW-w64可完全兼容MinGW32  （我觉得难说）。故选择MinGW-w64选择在官网下载latest10.0MinGW-w64. 不会从从源码编译</p>
+<p><strong>故退而选择CLION内置MINGW工具链：</strong></p>
+<p>其中，make为<code>C:\Program Files\JetBrains\CLion 2022.2.1\bin\mingw\bin\mingw32-make.exe</code></p>
+<p>配置三个工具的环境变量</p>
+<h1 id="_2">配置</h1>
+<h2 id="clion-tool_chain"><strong>CLion-&gt;项目tool_chain配置</strong></h2>
+<p>工具集：CLION-MinGW，</p>
+<p>Make ： <code>C:\Program Files\JetBrains\CLion 2022.2.1\bin\mingw\bin\mingw32-make.exe</code></p>
+<p>complier ： arm-none-eabi-gcc/g++</p>
+<p><strong>debugger:  Clion built-in GDB</strong></p>
+<p><img alt="image-20230318123956399" src="https://s2.loli.net/2023/03/18/zfOALRgoiTI5wyq.png" /></p>
+<h2 id="clion-cmake"><strong>Clion-&gt;项目Cmake配置</strong></h2>
+<p><img alt="image-20230311201140591" src="https://s2.loli.net/2023/03/11/kxKbnv1aloLQhfP.png" /></p>
+<h2 id="clion-rundebug"><strong>CLion-&gt;项目Run/Debug配置</strong></h2>
+<p>debugger选用内置即可，不用armgdb</p>
+<p>注意配置cfg文件。在项目中放入cfg文件后他会自动生成camke配置</p>
+<p><img alt="image-20230311201325283" src="https://s2.loli.net/2023/03/11/6xZeu5fyw3TaK8r.png" /></p>
+<p>需要添加cmake程序和OpenOCD烧录器</p>
+<h2 id="openocdcfg"><strong>openOCD中“.cfg”的配置</strong></h2>
+<p>笔者使用dap，需要自己手写<strong>"dap.cfg"</strong></p>
+<p><strong>注意这个.cfg关系到项目的构筑配置，不写入这个文件cmake是build不出的</strong></p>
+<p>.<strong>详见ref</strong></p>
+<blockquote>
+<p><strong>interface</strong> 文件夹存储了各种调试器的配置文件，包括 cmsis-dap、stlink-v2 等。<strong>target</strong> 文件夹则存储了各种芯片的配置文件，例如 <em>stm32f1x.cfg</em> 就对应着 STM32F1 系列。正点原子、野火等国内企业出品的开发板不属于官方开发板，自然在 <strong>board</strong> 文件夹中不会有他们的配置文件，因此我们需要根据自己使用的调试器和芯片，写自己的配置文件。</p>
+</blockquote>
+<pre><code class="language-cpp"># choose st-link/j-link/dap-link etc.
+adapter driver cmsis-dap
+cmsis_dap_backend hid
+transport select swd
+
+# 0x10000 = 64K Flash Size
+set FLASH_SIZE 0x160000  //视开发板片内flash资源而定
+
+source [find target/stm32f4x.cfg]
+
+# download speed = 1MHz
+adapter speed 1000 //
+</code></pre>
+<h1 id="include-stdc">include stdc++</h1>
+<blockquote>
+<p>如果使用稚晖的MingGW32，需要配置这些，CLION内置的MINGW64不用</p>
+</blockquote>
+<p>将main文件改为cpp后缀，在cmakelist文件中，添加头文件搜索路径：</p>
+<pre><code class="language-cpp">#include目录
+include_directories(Core/Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32F4xx/Include Drivers/CMSIS/Include
+        D:/CubeMX/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include)
+</code></pre>
+<p>添加上armgcc的include目录<code>/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include</code></p>
+<p><strong>关于本cmakelist各指令的讲解，可参考学长视频：</strong></p>
+<p>[<a href="https://www.bilibili.com/video/BV1EP4y1B7AE/?spm_id_from=333.999.0.0&amp;vd_source=d8c39ae6749f658d0698389713f47409">SWJTU-G308] CLion 配置嵌入式开发~_哔哩哔哩_bilibili</a></p>
+<h1 id="printf">printf重定向</h1>
+<p>参见稚晖文章，笔者觉得还挺麻烦的，遂罢，~~凑合用HAL库吧~~</p>
+<p>笔者选择自己搭建一套基于泛型的LOG框架。</p>
+<h1 id="program">Program</h1>
+<blockquote>
+<p>如下可以开始优雅地使用c++开发</p>
+</blockquote>
+<pre><code class="language-cpp">void test()
+{
+    std::vector&lt;std::string&gt; vec={&quot;Hello embedded\n&quot;,&quot;Hello clion\n&quot;,&quot;Hello c++17\n&quot;,&quot;Hello std::vector,string,and object!&quot;};
+
+    for( auto&amp; it:vec)
+    {
+        HAL_UART_Transmit(&amp;huart5,it.c_str(),it.size(),300);
+    }
+}
+</code></pre>
+<p>蓝牙串口信息：</p>
+<p><img alt="image-20230311202541092" src="https://s2.loli.net/2023/03/11/Cuyvc8QY7kMwaDt.png" /></p>
+<blockquote>
+<p>后：笔者有次和老师聊天时，吐槽到arduino uno 屏蔽太多底层细节，内核如中断由太过简陋，做课设时踩坑不断。 老师说如果能用51实现也是接受的。 笔者禁不住幽幽地吐槽“感觉51，...有点刀耕火种啊。。”</p>
+<p>如何平衡底层和抽象呢，在单片机学习中笔者慢慢学会了翻datasheet。封装如Arduino，踩坑后可以翻datasheet找到Solution。简陋如51，笔者对着刀耕火种的keilIDE和C89的语言标准，委实是没有力气在寄存器上刀耕火种</p>
+<p>从汇编到c/c++到java c#到python matlab。笔者认为stdc++ 是我喜欢的方式。在熟悉底层到寄存器和汇编的前提下，笔者很乐意用HAL库，用对象，用stl去完成任务。</p>
+<p>现代嵌入式设备的应用场景都落实到深度学习，神经网络，cv的部署上了，在大容量设备上，为什么不可以拥抱现代IDE和编程语言呢？关于运行效率，笔者只在嵌入式中听闻过c++效率不行。作为一个玩票的大学生，我可以口嗨一句embedded C过时了。</p>
+</blockquote>
+<h1 id="debug">Debug</h1>
+<blockquote>
+<p>Reference :<a href="https://www.jetbrains.com/help/clion/2022.3/openocd-support.html">OpenOCD support | CLion Documentation (jetbrains.com)</a></p>
+</blockquote>
+<p>启动debug后，内核处于停止状态，记得点击工具栏上的复位，使PC跳转到Reset_Handler上</p>
+<p>（详见本项目内核札记）</p>
+<p>Reference:</p>
+<p><a href="https://www.jetbrains.com/help/clion/2022.3/embedded-development.html?utm_source=product&amp;utm_medium=link&amp;utm_campaign=CL&amp;utm_content=2022.3#prepare-tools">STM32立方体MX项目 |CLion 文档 (jetbrains.com)</a></p>
+<h1 id="_3">新建项目步骤</h1>
+<h2 id="1clionstm32">1.CLion新建stm32工程</h2>
+<h2 id="2idecubemx">2.按照ide提示打开cubemx配置初始化代码</h2>
+<h2 id="3clioncfg"><strong>3.回到clion，为项目添加.cfg文件</strong>，否则将没有构建配置！！！</h2>
+<h2 id="3openocd">3.运行配置中添加"Openocd运行并下载"，并选中面板配置文件</h2>
+<h2 id="4cmakelist">4.配置cmakelist文件：</h2>
+<h3 id="-g0include">关闭优化(-g0)，添加include路径：</h3>
+<p>不关，也行，懂编译原理的话。</p>
+<p><img alt="image-20230315174456701" src="https://s2.loli.net/2023/03/15/hK2p75Grq8ZkTAQ.png" /></p>
+<h2 id="5programingcmakelistfileinclude_dir">5.Programing，配置cmakelist的file，include_dir</h2>
+<p><img alt="image-20230315182645185" src="https://s2.loli.net/2023/03/15/ABRC1WYPayvlQL8.png" /></p>
+<h2 id="6debugsvd">6.debug，选择svd文件从而监视外设</h2>
+<p>关于svd文件的意义，详见本项目CortexM内核札记</p>
+<p>@ref ：svd2rust：PAC(外设访问层) <a href="https://www.bilibili.com/video/BV1ki4y117vp/?spm_id_from=333.337.search-card.all.click">Rust嵌入式开发入门(02)--Rust嵌入式社区生态概览_哔哩哔哩_bilibili</a></p>
+<p>对应芯片的svd文件在keil中能找到，用evething搜索即可</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../none/" class="btn btn-neutral float-left" title="-VScode环境搭建"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%E5%9F%BA%E4%BA%8EEIDE_vscode%E7%9A%84%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="btn btn-neutral float-right" title="-基于EIDE的开发环境搭建">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../none/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%E5%9F%BA%E4%BA%8EEIDE_vscode%E7%9A%84%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
