@@ -92,29 +92,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="gitcookbook">gitCookBook</h1>
+                <h2 id="gitcookbook">gitCookBook</h2>
 <p>本札记是一个开源爱好者对git操作的归档。札记从将本地仓库推送至开源平台出发，记录了仓库的初始化、远程推送流程；远程、本地的版本同步手册；GIT工作模型与版本控制命令的札记。</p>
 <p><a href="https://oschina.gitee.io/opensource-guide/git_tutorial/Git 入门（初级篇）/Git 的入门使用/#commit-提交到本地存储库">Git 的入门使用 | 开源指北 (gitee.io)</a></p>
 <p><a href="https://juejin.cn/post/7040638672584048671">git reset &amp; checkout 详解 - 掘金 (juejin.cn)</a></p>
-<h1 id="_1">推送流程</h1>
-<h2 id="ssh">ssh密匙制作</h2>
+<h2 id="_1">推送流程</h2>
+<h3 id="ssh">ssh密匙制作</h3>
 <p><a href="https://gitee.com/help/articles/4181">生成/添加SSH公钥 - Gitee.com</a></p>
 <p>要将项目开源到平台，首要问题是本地客户端与远端服务器的网络通信。常用通信协议是ssh，这需要配置公钥密钥，作为连接远端服务器的令牌。制作方式见Gitee。</p>
 <p>制作完的秘钥可应用应用在各种网络通信环节，只要这把秘钥与部署在服务器的公钥匹配。故推荐存在User目录下吧。</p>
 <p>hub上，可以图形化地为账号和仓库配置公匙，在设置里找找就行</p>
-<h2 id="_2">初始化本地仓库并推送到远程端</h2>
-<h2 id="_3">本地仓库初始化：</h2>
+<h3 id="_2">初始化本地仓库并推送到远程端</h3>
+<h3 id="_3">本地仓库初始化：</h3>
 <pre><code class="language-matlab">git init    %初始化本地仓库 cmd中，% 是注释符
 git branch  -M [master] lctee/lchub %branch：分支命令 [-M]参数： 将[]分支重命名
 git add *   %添加工作区所有文件的&quot;变化增量&quot;到暂存区中
 git commit -m [message]    %提交暂存区的所有修改，作为仓库的一个版本记录
 </code></pre>
-<h2 id="_4">推送到到远程仓库</h2>
+<h3 id="_4">推送到到远程仓库</h3>
 <p>若远程仓库为空，为根据['master']参数创建初始分支</p>
 <pre><code class="language-cpp">git remote add [gitee/github] http/ssh.git  %新建远程仓库
 git push -u lchub github 'master'  %推送[本地分支]到[远程仓库]的[远程分支]，并设置好此本地分支的默认远程分支 -u:updata 
 </code></pre>
-<h2 id="_5">多分支推送多仓库</h2>
+<h3 id="_5">多分支推送多仓库</h3>
 <pre><code class="language-matlab">git branch lctee  %创建新的分支
 git checkout lctee %切换分支
 
@@ -133,15 +133,15 @@ git push -u gitee lctee[:'master']
 </code></pre>
 <p><img alt="image-20230415134158863" src="https://s2.loli.net/2023/04/15/bym8UlS4Xqz5Hpu.png" /></p>
 <p>其中，push内容为本次的commit。</p>
-<h1 id="_6">仓库同步命令手册</h1>
-<h2 id="git-remote">远程仓库管理 git remote</h2>
+<h2 id="_6">仓库同步命令手册</h2>
+<h3 id="git-remote">远程仓库管理 git remote</h3>
 <p><a href="https://git-scm.com/book/zh/v2/Git-基础-远程仓库的使用">Git - 远程仓库的使用 (git-scm.com)</a></p>
 <ul>
 <li><code>git remote show [gitee]</code>   展示远程仓库信息  </li>
 </ul>
 <p><img alt="image-20230415135039561" src="https://s2.loli.net/2023/04/15/TdQjqFXMVgHs7v9.png" /></p>
 <p><code>gir remote add/rm/rename</code> 增删改远程仓库</p>
-<h2 id="git-branchgit-checkout-branch">分支管理     git branch、git checkout [branch]</h2>
+<h3 id="git-branchgit-checkout-branch">分支管理     git branch、git checkout [branch]</h3>
 <ul>
 <li>
 <p><code>git branch</code> 查看仓库下所有分支</p>
@@ -156,7 +156,7 @@ git push -u gitee lctee[:'master']
 <li><code>git branch --track/--untrack</code> 配置追踪模式</li>
 <li><code>git chechkout [branch]</code> checkout作用于分支的语法，切换分支</li>
 </ul>
-<h2 id="git-fetchpull">分支拉取与合并冲突 git fetch/pull</h2>
+<h3 id="git-fetchpull">分支拉取与合并冲突 git fetch/pull</h3>
 <p><strong>拉取分支最近一次修改事件</strong></p>
 <p><code>git fetch [github master]</code> 仅拉取文件，不执行合并工作流 </p>
 <p><code>git merge</code> 合并，略</p>
@@ -164,7 +164,7 @@ git push -u gitee lctee[:'master']
 <p>代码冲突审阅流程：<code>git status</code>粗略对比文件增量差异；</p>
 <p>git pull 后，拉取到了一个新的commit 版本并将其与本地工作区文件合并，冲突部分会被修改称带冲突标记<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>、<code>=======</code>和<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>的样式，用户可用冲突审阅工具或记事重新修改文件，完成冲突合并操作。</p>
 <p>此后使用 git add将增量变化添加到暂存区。</p>
-<h2 id="gitignore">.gitignore</h2>
+<h3 id="gitignore">.gitignore</h3>
 <p>您好，这是必应。您想要查看当前被.gitignore忽略的文件，有以下几种方法：</p>
 <ul>
 <li><a href="about:blank#">您可以使用 <code>git status</code> 命令来查看当前状态，其中忽略的文件将会被列为未被跟踪（untracked）的文件</a><a href="https://bing.com/search?q=git+bash+查看当前被忽略的文件">1</a><a href="https://geek-docs.com/git/git-questions/318_git_git_command_to_show_which_specific_files_are_ignored_by_gitignore.html">2</a>。</li>
@@ -177,7 +177,7 @@ git push -u gitee lctee[:'master']
 <p>/ARM Cortex-M3与Cortex-M4权威指南-ZH.pdf</p>
 <p>/物联网传感器技术与应用.pdf`</p>
 <p>希望这些方法能够帮助您解决问题。如果您还有其他问题，欢迎继续提问。😊</p>
-<h1 id="git">GIT工作模型 工作区 暂存区 版本库</h1>
+<h2 id="git">GIT工作模型 工作区 暂存区 版本库</h2>
 <p><img alt="image-20230726213659812" src="https://s2.loli.net/2023/07/26/AsGk9nlPBychrSa.png" /></p>
 <p><strong>工作区</strong></p>
 <p>本地仓库的实际项目文件。</p>
@@ -188,9 +188,9 @@ git push -u gitee lctee[:'master']
 <p>或者使用 git checkout 命令从版本库中检出文件到工作区。</p>
 <p><strong>工作流程</strong></p>
 <p>GIT 的工作流程是这样的：您在工作区中修改或创建文件，然后使用 git add 命令将文件的增量快照（即相对于上一次提交的修改部分）添加到暂存区，最后使用 git commit 命令将暂存区中的所有增量快照转换为一个永久的版本记录，并保存到版本库中。</p>
-<h1 id="_7">版本控制命令手册</h1>
+<h2 id="_7">版本控制命令手册</h2>
 <p>首先要摒弃git是为远程仓库服务的挂念。git的一切命令基于本地的分布式版本控制需求。</p>
-<h2 id="git-addrmcommit"><strong>git add/rm/commit</strong></h2>
+<h3 id="git-addrmcommit"><strong>git add/rm/commit</strong></h3>
 <p><code>git add</code> 为添加工作区文件的<strong>增量快照（即文件的改动部分）</strong>到暂存区中。</p>
 <p><code>git rm</code>将文件的暂存区增量和工作区均删除；</p>
 <p><code>git rm --cached</code>不记录这部分变化,（距上一个commit的工作区变更）。仅删除残存区变化。</p>
@@ -203,7 +203,7 @@ git push -u gitee lctee[:'master']
 <li><code>-C/c &lt;commit&gt;</code> 复用某次提交的附带信息。区别为是否再启动编辑器修改日志信息</li>
 <li><code>git commit -m &lt;msg&gt;</code> 为本次提交附带日志信息。</li>
 </ul>
-<h2 id="git-tag"><strong>git tag</strong></h2>
+<h3 id="git-tag"><strong>git tag</strong></h3>
 <p>git tag是一个git命令，用于给仓库中的某个提交打上标签，以示重要或者标记一个版本。git tag支持两种类型的标签：<strong>轻量级标签（lightweight）</strong>和<strong>附注标签（annotated</strong>）。<strong>轻量级标签只是一个指向特定提交的引用，不包含任何额外的信息。</strong>附注标签是一个独立的对象，包含了标签名、消息、作者、日期等信息，还可以用GPG签名和验证。</p>
 <ul>
 <li>git tag的常用参数有以下几个：</li>
@@ -212,7 +212,7 @@ git push -u gitee lctee[:'master']
 <li><code>-m 或 --message</code>：指定创建附注标签时的消息，可以和-a选项一起使用。例如，<code>git tag -a v1.0 -m "Version 1.0"</code>。</li>
 <li><code>-d 或 --delete</code>：删除一个或多个已有的本地标签，需要提供一个或多个标签名。例如，git tag -d v1.0会删除v1.0这个本地标签。</li>
 </ul>
-<h2 id="git-restore">git restore</h2>
+<h3 id="git-restore">git restore</h3>
 <p>git restore用以从一个恢复原回复工作区指定文件，将其回滚到指定的commit或index。</p>
 <p><a href="https://www.cnblogs.com/teach/p/13997323.html">可以使用<code>--source</code>或者<code>-s</code>选项来指定恢复源</a><a href="https://www.cnblogs.com/teach/p/13997323.html">1</a>，默认为最近一次的commit，暨HEAD指针 </p>
 <p><strong>git restore <file_name></strong>：将丢弃工作区的未保存修改(未 <code>git add</code>),回滚到指定的恢复原。（<strong>包括对文件的增删修改</strong>）</p>
@@ -223,7 +223,7 @@ git push -u gitee lctee[:'master']
 <li><code>–source &lt;src&gt;</code>：恢复文件的特定修订版本。默认情况下，文件将恢复到其最后提交的状态（或者只是取消暂存）。–source选项允许您在特定修订版本处恢复文件。</li>
 <li><code>–patch</code>：允许您选择要恢复的单个块。Git以交互方式逐步执行更改中的所有单独块，并询问您是否要丢弃/取消暂存每个块。请注意，–patch可以接受没有路径规范，并将提示恢复所有修改过的路径。</li>
 </ul>
-<h2 id="git-checkout">git checkout</h2>
+<h3 id="git-checkout">git checkout</h3>
 <p>“签出”语法，有两种常见复用</p>
 <ul>
 <li><code>git checkout &lt;branchName&gt;</code>切换分支;不带具体的文件路径时，用于修改head当前指向的分支</li>
@@ -236,7 +236,7 @@ git push -u gitee lctee[:'master']
 <li><code>-b</code> 创建分支并切换。<code>git branch &lt;new&gt; ;git checkout &lt;new&gt;</code></li>
 </ul>
 <p><strong>总之，就是让这个工作区文件回滚到最近一次<code>git commit</code>或<code>git add</code>时的状态。</strong></p>
-<h2 id="git-reset">git reset</h2>
+<h3 id="git-reset">git reset</h3>
 <p>操作对象：head指针。修改改head指向commit，回滚到以往的commit。同时根据修改head后，<strong>是否级联修改stage、workspace，</strong>可进一步的细分成三种模式hard、sort、mixed（默认），如下图所示：</p>
 <ul>
 <li>commit：是指respoistory中每次保存（提交）后的结果，指向一个完整的版本记录</li>
@@ -253,17 +253,17 @@ git push -u gitee lctee[:'master']
 </li>
 </ul>
 <p>会重置工作区，作用在文件上，用于项目的版本回滚。</p>
-<h1 id="_8">应用札记</h1>
-<h2 id="_9">大文件限制</h2>
+<h2 id="_8">应用札记</h2>
+<h3 id="_9">大文件限制</h3>
 <p>解决方案如下脚本：自动搜索项目文件，将大于50M的文件写入某配置文件。（忽略 或 大文件托管）</p>
 <pre><code class="language-sh">type nul &gt;.gitignore
 echo &quot;.gitignore&quot; &gt;&gt;.gitignore
 echo &quot;/large-file-ignore.sh&quot; &gt;&gt;.gitignore
-# 查找大于 50MB 的文件并将它们的相对路径写入 .gitattributes 文件中
+## 查找大于 50MB 的文件并将它们的相对路径写入 .gitattributes 文件中
 find . -type f -not -path './.git/*' -size +50M -exec sh -c 'echo &quot;/$(realpath --relative-to=. &quot;{}&quot;) &quot; &gt;&gt; .gitignore' \;
 
 #type nul &gt;.gitattributes
-# 查找大于 50MB 的文件并将它们的相对路径写入 .gitattributes 文件中
+## 查找大于 50MB 的文件并将它们的相对路径写入 .gitattributes 文件中
 #find . -type f -not -path './.git/*' -size +50M -exec sh -c 'echo &quot;/$(realpath --relative-to=. &quot;{}&quot;) filter=lfs diff=lfs merge=lfs -text&quot; &gt;&gt; .gitattributes' \;
 
 #git lfs install
