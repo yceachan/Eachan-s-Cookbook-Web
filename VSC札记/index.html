@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="yceachan" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>基于vscode的verilog环境搭建 - Eachan_s_CookBook</title>
+    <title>vscode - Eachan_s_CookBook</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "\u57fa\u4e8evscode\u7684verilog\u73af\u5883\u642d\u5efa";
-        var mkdocs_page_input_path = "none.md";
+        var mkdocs_page_name = "vscode";
+        var mkdocs_page_input_path = "VSC\u672d\u8bb0.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -44,19 +44,21 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">杂项</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../gitCookBook/">git</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../VSC%E6%9C%AD%E8%AE%B0/">vscode</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">vscode</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="./">数据结构与算法</a>
+                <li class="toctree-l1"><a class="reference internal" href="../none/">数据结构与算法</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">数字设计与计算机体系结构</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">基于vscode的verilog环境搭建</a>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../none/">基于vscode的verilog环境搭建</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">微体系结构</a>
                   </li>
@@ -80,8 +82,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">数字设计与计算机体系结构</li>
-      <li class="breadcrumb-item active">基于vscode的verilog环境搭建</li>
+          <li class="breadcrumb-item">杂项</li>
+      <li class="breadcrumb-item active">vscode</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -90,13 +92,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>//TODO</p>
+                <h1 id="_1">插件</h1>
+<p>C-familyDocumentation </p>
+<p>better comments ：</p>
+<p>在注释首行 写 ！、？、*、TODO表示符。</p>
+<p><img alt="image-20230921010835662" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202309210108827.png" /></p>
+<p>C/C++ Include Guard </p>
+<p>头文件保护宏</p>
+<h1 id="_2">快捷键</h1>
+<p><strong>上下移动行</strong>(ALT+↑/↓)</p>
+<p>你可以在你的代码文件中上下移动一行，通过使用 <code>**ALT+**↑</code>或 <code>**ALT+**↓**.**</code> 这在与 "重复行<strong>"</strong>的合作中经常派上用场。</p>
+<p><strong>删除整个单词</strong>(CTRL+Delete / CTRL+Backspace)</p>
+<p>CTRL键最常被用来编辑整个单词。在这种情况下，我们可以通过使用<code>CTRL+DEL</code> 或<code>CTRL+Backspace</code></p>
+<p><strong>标记整个</strong>单词 (CTRL+SHIFT+ ←/ →)</p>
+<p>如果你想快速标记整个单词，只要使用<code>CTRL+SHIFT+ ←</code> 或<code>CTRL+SHIFT+ →</code> 。如果你使用的是鼠标，你也可以双击一个单词!</p>
+<h1 id="_3">配置文件</h1>
+<p>REF ： <a href="https://code.visualstudio.com/docs/cpp/config-mingw">Get Started with C++ and MinGW-w64 in Visual Studio Code</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1922892">手把手学会 VS Code "任务"神技，成为项目组最靓的崽！-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<p><a href="https://juejin.cn/post/6956832271236071431">vscode调试入门——不要只会console了！什么是launch.json？ - 掘金 (juejin.cn)</a></p>
+<h2 id="taskjson">task.json</h2>
+<h2 id="launchjson">launch.json</h2>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="./" class="btn btn-neutral float-left" title="数据结构与算法"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="btn btn-neutral float-right" title="微体系结构">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../gitCookBook/" class="btn btn-neutral float-left" title="git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../none/" class="btn btn-neutral float-right" title="数据结构与算法">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -119,10 +140,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="./" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../gitCookBook/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../none/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="yceachan" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>-基于Clion的开发环境搭建 - Eachan_s_CookBook</title>
+    <title>基于Clion的STM32开发环境搭建 - Eachan_s_CookBook</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "-\u57fa\u4e8eClion\u7684\u5f00\u53d1\u73af\u5883\u642d\u5efa";
+        var mkdocs_page_name = "\u57fa\u4e8eClion\u7684STM32\u5f00\u53d1\u73af\u5883\u642d\u5efa";
         var mkdocs_page_input_path = "\u57fa\u4e8eCLion\u7684STM32\u5f00\u53d1\u73af\u5883\u642d\u5efa.md";
         var mkdocs_page_url = null;
       </script>
@@ -43,52 +43,36 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">About</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Documentation</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="#">-Digital</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="#">-数字设计与计算机体系结构</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">-数字逻辑</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">-体系结构</a>
-                </li>
-    </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">-FPGA</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../none/">-VScode环境搭建</a>
-                </li>
-    </ul>
-                </li>
-    </ul>
+              <p class="caption"><span class="caption-text">杂项</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../gitCookBook/">git</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">-Embedded</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../VSC%E6%9C%AD%E8%AE%B0/">vscode</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../none/">数据结构与算法</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">数字设计与计算机体系结构</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../none/">基于vscode的verilog环境搭建</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">微体系结构</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">嵌入式系统设计</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">基于Clion的STM32开发环境搭建</a>
     <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">-ModerenSTM32</a>
-    <ul class="current">
-                <li class="toctree-l3 current"><a class="reference internal current" href="./">-基于Clion的开发环境搭建</a>
-    <ul class="current">
-    <li class="toctree-l4"><a class="reference internal" href="#arm-none-eabi-gcc">arm-none-eabi-gcc</a>
+    <li class="toctree-l2"><a class="reference internal" href="#arm-none-eabi-gcc">arm-none-eabi-gcc</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#openocd">openOCD</a>
+    <li class="toctree-l2"><a class="reference internal" href="#openocd">openOCD</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#mingw32">MinGW32</a>
+    <li class="toctree-l2"><a class="reference internal" href="#mingw32">MinGW32</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#mingw-w64">MinGW-w64</a>
+    <li class="toctree-l2"><a class="reference internal" href="#mingw-w64">MinGW-w64</a>
     </li>
-    </ul>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../%E5%9F%BA%E4%BA%8EEIDE_vscode%E7%9A%84%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">-基于EIDE的开发环境搭建</a>
-                </li>
-    </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">-ARM</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../CortexM%E5%86%85%E6%A0%B8%E6%9C%AD%E8%AE%B0/">-ARM内存模型</a>
-                </li>
-    </ul>
-                </li>
     </ul>
                   </li>
               </ul>
@@ -106,10 +90,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Documentation</li>
-          <li class="breadcrumb-item">-Embedded</li>
-          <li class="breadcrumb-item">-ModerenSTM32</li>
-      <li class="breadcrumb-item active">-基于Clion的开发环境搭建</li>
+          <li class="breadcrumb-item">嵌入式系统设计</li>
+      <li class="breadcrumb-item active">基于Clion的STM32开发环境搭建</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -258,8 +240,7 @@ include_directories(Core/Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../none/" class="btn btn-neutral float-left" title="-VScode环境搭建"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../%E5%9F%BA%E4%BA%8EEIDE_vscode%E7%9A%84%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="btn btn-neutral float-right" title="-基于EIDE的开发环境搭建">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="btn btn-neutral float-left" title="微体系结构"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -282,10 +263,8 @@ include_directories(Core/Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../none/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../%E5%9F%BA%E4%BA%8EEIDE_vscode%E7%9A%84%E5%8D%95%E7%89%87%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

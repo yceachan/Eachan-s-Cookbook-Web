@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="yceachan" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>微体系结构 - Eachan_s_CookBook</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u5fae\u4f53\u7cfb\u7ed3\u6784";
+        var mkdocs_page_input_path = "\u5fae\u4f53\u7cfb\u7ed3\u6784.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Eachan_s_CookBook
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">杂项</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../gitCookBook/">git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../VSC%E6%9C%AD%E8%AE%B0/">vscode</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../none/">数据结构与算法</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">数字设计与计算机体系结构</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../none/">基于vscode的verilog环境搭建</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">微体系结构</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">嵌入式系统设计</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E4%BA%8ECLion%E7%9A%84STM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">基于Clion的STM32开发环境搭建</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Eachan_s_CookBook</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">数字设计与计算机体系结构</li>
+      <li class="breadcrumb-item active">微体系结构</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="single-cycle-mips">Single-Cycle MIPS</h1>
+<p>单周期处理器的数据路径易于构建，而时序需要考虑。</p>
+<p>Ref：<a href="https://nju-projectn.github.io/dlco-lecture-note/exp/11.html#cpu">实验十一 RV32I单周期CPU — 南京大学 计算机科学与技术系 数字逻辑与计算机组成 课程实验 documentation (nju-projectn.github.io)</a></p>
+<blockquote>
+<p>在单周期CPU中，所有操作均需要在一个周期内完成。其中单周期存储部件的读写是时序设计的关键。</p>
+<p>以下为nju数组实验推荐的单周期cpu时序</p>
+</blockquote>
+<p><img alt="image-20231201193152975" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011934320.png" /></p>
+<blockquote>
+<p>以下为《数字设计与计算机体系结构》（黑皮书)给出的MIPS数据路径。</p>
+<p>图中，Imem的地址输入宜改为pc'  ，改为同步时序器件。</p>
+</blockquote>
+<p><img alt="image-20231201193404784" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011934828.png" /></p>
+<p>Verilog实现项目Ref ：</p>
+<h1 id="multicycle-mips">Multicycle MIPS</h1>
+<blockquote>
+<ul>
+<li>datapath</li>
+</ul>
+</blockquote>
+<p><img alt="image-20231201162917358" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011629435.png" /></p>
+<blockquote>
+<ul>
+<li>fetch dataflow</li>
+</ul>
+</blockquote>
+<p>-D触发器在时钟上升沿触发，存储器在下降沿读出。</p>
+<p>-故可在PC自增的一个周期内，读出Instr。</p>
+<p><img alt="image-20231201163003534" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011630577.png" /></p>
+<blockquote>
+<ul>
+<li>decode data flow
+-Instr在上升沿更新，RF可在下降沿或组合逻辑读出，并在上升沿将读通道RF_RD1,RD_RD2 更新到触发器A、B
+-在一个指令尚未完成时，PC寄存器被锁住，不用担心Imm与A、B的不同拍问题。</li>
+</ul>
+</blockquote>
+<p><img alt="image-20231201163221595" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011632637.png" /></p>
+<blockquote>
+<ul>
+<li>execute data flow
+-ALU是纯组合逻辑，其输出打一拍ALUOut连向存储器寻址（访存指令是无周期）
+-当ALU用于PC自增时，不再打拍，直接连向PC‘（PC被锁住），PC’在这几个周期计算结果都为PC+4</li>
+</ul>
+</blockquote>
+<p><img alt="image-20231201163817021" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011638063.png" /></p>
+<blockquote>
+<ul>
+<li>memory and writeback
+-在4th时钟的上升沿，写入数据存储器。完成四周期指令sw
+-在4th时钟的下降沿，再读出数据存储器，获得五周期lw指令的装载字。
+-在5th时钟的上升沿，更新到Data触发器，在下降沿，写入RF。
+-在6th时钟，PC解锁，迭代更新。</li>
+</ul>
+</blockquote>
+<p><img alt="" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011644911.png" /></p>
+<p>控制信号需要使用状态机流转。  </p>
+<blockquote>
+<ul>
+<li>controller fsm</li>
+</ul>
+</blockquote>
+<p><img alt="image-20231201161312582" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011613663.png" /></p>
+<h1 id="pipeline-v-mips">Pipeline -V MIPS</h1>
+<blockquote>
+<ul>
+<li>datapath</li>
+</ul>
+<p>存储器还是在时钟的下降沿读出/写入;</p>
+<p>将每一阶段的输出打拍传给下一阶段，完成流水线的结构。</p>
+</blockquote>
+<p><img alt="image-20231201165234832" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011652890.png" /></p>
+<blockquote>
+<ul>
+<li>pipeline view</li>
+</ul>
+</blockquote>
+<p>深色-使用中，浅色-未使用。</p>
+<p>IM : instruction memory fetch</p>
+<p>RF(01) : decode，regfile read out。左为写端口，右为读端口</p>
+<p>DM : data memory access</p>
+<p>RF(1:0):writeback</p>
+<p><img alt="image-20231201165522927" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011655968.png" /></p>
+<blockquote>
+<ul>
+<li>流水线冲突 与数据前推/重定向解决方案</li>
+<li>RAW：read after write</li>
+</ul>
+</blockquote>
+<p>如图，指令1，s0的运算结果，在时钟3的组合逻辑阶段已经算出，带时钟5下降沿才被写回RF。在时钟6后才可以从RF中读出。</p>
+<p>故而考虑重定向信号：有红/橙两种重定向路径。</p>
+<p>分析应基于时钟顺序。</p>
+<p>在clk3的组合逻辑期间，res_e被计算出，在res_w的上身沿，数据推到RF的写通道，在clk5的前半个时钟写入RF。</p>
+<p>在clk4，alu的操作数src_e应被重定向为res_m</p>
+<p>在clk5，alu的操作数src_e应被重顶向为res_w</p>
+<p>在clk5，考虑指令0和指令3，同时对RF的s0寄存器执行了写和读操作。<strong>在一定的存储器时序特性下，不需要重定向数据源</strong>。</p>
+<p>具体的，存储器器件应具有写后读特性。在系统时钟的边沿时刻，<strong>若存储器输入端口同时有对同一地址的写和读操作，写操作需要先被完成，且读操作读出此时的写结果。</strong>（而非上一拍数据，考虑D触发器的同时读写操作，不具备此时序特性，DQ--&gt;D---&gt;D'。后级触发器读出结果为D的上一拍。)</p>
+<p>可行的存储器结构为：</p>
+<p>1<em> 以上升沿作为时钟起点，</em><em>在时钟的下降沿的执行写操作</em>*（为获得尽可能好的同步时序特性）；使用组合逻辑，以非同步形式读出RF。读通道连向后级DF，在下一个时钟，后级DF的数据可用。</p>
+<pre><code class="language-verilog">module rf_sync_write(   //异步rf 伪代码
+    input clk,addr,we,
+    inout din,dout
+);
+reg [31:0] mem[32];
+    always(@negedge clk) if(we) mem[addr] &lt;= din;
+assign dout =mem[addr];
+</code></pre>
+<p>2<em>在前半周期，使能RF的写操作，在后半周期，使能RF的读操作。</em><em>即，对RF读写的分时访问</em>*</p>
+<pre><code class="language-verilog">module rf_async(   //异步rf 伪代码
+    input clk,addr,we,
+    inout din,dout
+);
+reg [31:0] mem[32];
+    always(*) if(we &amp;&amp; clk ) mem[addr] = din; else mem[addr]=mem[addr];
+    //*以锁存器而非wire的必要性？
+    always(*) if(!we &amp;&amp; !clk ) dout = mem[addr]; else dout = dout;
+    //assign dout = mem[addr];
+</code></pre>
+<p><img src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011702576.png" alt="image-20231201170217510" style="zoom:67%;" /></p>
+<blockquote>
+<ul>
+<li>重定向数据路径 ；数据旁路</li>
+</ul>
+</blockquote>
+<p>如图，使用访存、写回阶段的运算结果对执行阶段的操作数进行重定向</p>
+<p><img alt="image-20231201180023490" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011800540.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../none/" class="btn btn-neutral float-left" title="基于vscode的verilog环境搭建"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%E5%9F%BA%E4%BA%8ECLion%E7%9A%84STM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="btn btn-neutral float-right" title="基于Clion的STM32开发环境搭建">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../none/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%E5%9F%BA%E4%BA%8ECLion%E7%9A%84STM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
