@@ -99,12 +99,12 @@
 <p>在单周期CPU中，所有操作均需要在一个周期内完成。其中单周期存储部件的读写是时序设计的关键。</p>
 <p>以下为nju数组实验推荐的单周期cpu时序</p>
 </blockquote>
-<p><img alt="image-20231201193152975" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011934320.png" /></p>
+<p><img alt="image-20231201193152975" src="https://s2.loli.net/2023/12/02/kzXaPLe51UVsOSq.png" /></p>
 <blockquote>
 <p>以下为《数字设计与计算机体系结构》（黑皮书)给出的MIPS数据路径。</p>
 <p>图中，Imem的地址输入宜改为pc'  ，改为同步时序器件。</p>
 </blockquote>
-<p><img alt="image-20231201193404784" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011934828.png" /></p>
+<p><img alt="image-20231201193404784" src="https://s2.loli.net/2023/12/02/LJNZKuhOeRFmiPq.png" /></p>
 <p>Verilog实现项目Ref ：</p>
 <h1 id="multicycle-mips">Multicycle MIPS</h1>
 <blockquote>
@@ -112,7 +112,7 @@
 <li>datapath</li>
 </ul>
 </blockquote>
-<p><img alt="image-20231201162917358" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011629435.png" /></p>
+<p><img alt="image-20231201162917358" src="https://s2.loli.net/2023/12/02/jSvfq8HXyLU5zeK.png" /></p>
 <blockquote>
 <ul>
 <li>fetch dataflow</li>
@@ -120,7 +120,7 @@
 </blockquote>
 <p>-D触发器在时钟上升沿触发，存储器在下降沿读出。</p>
 <p>-故可在PC自增的一个周期内，读出Instr。</p>
-<p><img alt="image-20231201163003534" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011630577.png" /></p>
+<p><img alt="image-20231201163003534" src="https://s2.loli.net/2023/12/02/4yLkEuOh31NAQjV.png" /></p>
 <blockquote>
 <ul>
 <li>decode data flow
@@ -128,7 +128,7 @@
 -在一个指令尚未完成时，PC寄存器被锁住，不用担心Imm与A、B的不同拍问题。</li>
 </ul>
 </blockquote>
-<p><img alt="image-20231201163221595" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011632637.png" /></p>
+<p><img alt="image-20231201163221595" src="https://s2.loli.net/2023/12/02/iUZIMeDY4naqpj7.png" /></p>
 <blockquote>
 <ul>
 <li>execute data flow
@@ -136,7 +136,7 @@
 -当ALU用于PC自增时，不再打拍，直接连向PC‘（PC被锁住），PC’在这几个周期计算结果都为PC+4</li>
 </ul>
 </blockquote>
-<p><img alt="image-20231201163817021" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011638063.png" /></p>
+<p><img alt="image-20231201163817021" src="https://s2.loli.net/2023/12/02/TFzR4QlwWtIrUKc.png" /></p>
 <blockquote>
 <ul>
 <li>memory and writeback
@@ -146,14 +146,14 @@
 -在6th时钟，PC解锁，迭代更新。</li>
 </ul>
 </blockquote>
-<p><img alt="" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011644911.png" /></p>
+<p><img alt="" src="https://s2.loli.net/2023/12/02/CO3ETFytN5KeYwL.png" /></p>
 <p>控制信号需要使用状态机流转。  </p>
 <blockquote>
 <ul>
 <li>controller fsm</li>
 </ul>
 </blockquote>
-<p><img alt="image-20231201161312582" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011613663.png" /></p>
+<p><img alt="image-20231201161312582" src="https://s2.loli.net/2023/12/02/YwBvLtUmI2jizPM.png" /></p>
 <h1 id="pipeline-v-mips">Pipeline -V MIPS</h1>
 <blockquote>
 <ul>
@@ -162,7 +162,7 @@
 <p>存储器还是在时钟的下降沿读出/写入;</p>
 <p>将每一阶段的输出打拍传给下一阶段，完成流水线的结构。</p>
 </blockquote>
-<p><img alt="image-20231201165234832" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011652890.png" /></p>
+<p><img alt="image-20231201165234832" src="https://s2.loli.net/2023/12/02/CrSihYWEpyZt8J9.png" /></p>
 <blockquote>
 <ul>
 <li>pipeline view</li>
@@ -173,7 +173,7 @@
 <p>RF(01) : decode，regfile read out。左为写端口，右为读端口</p>
 <p>DM : data memory access</p>
 <p>RF(1:0):writeback</p>
-<p><img alt="image-20231201165522927" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011655968.png" /></p>
+<p><img alt="image-20231201165522927" src="https://s2.loli.net/2023/12/02/z56Y9fl1iwdCKEj.png" /></p>
 <blockquote>
 <ul>
 <li>流水线冲突 与数据前推/重定向解决方案</li>
@@ -209,14 +209,14 @@ reg [31:0] mem[32];
     always(*) if(!we &amp;&amp; !clk ) dout = mem[addr]; else dout = dout;
     //assign dout = mem[addr];
 </code></pre>
-<p><img src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011702576.png" alt="image-20231201170217510" style="zoom:67%;" /></p>
+<p><img src="https://s2.loli.net/2023/12/02/tWHOfZeqvJaFlzp.png" alt="image-20231201170217510" style="zoom:67%;" /></p>
 <blockquote>
 <ul>
 <li>重定向数据路径 ；数据旁路</li>
 </ul>
 </blockquote>
 <p>如图，使用访存、写回阶段的运算结果对执行阶段的操作数进行重定向</p>
-<p><img alt="image-20231201180023490" src="https://gitee.com/Ea_Chan/chan-imgs/raw/master/imgs/202312011800540.png" /></p>
+<p><img alt="image-20231201180023490" src="https://s2.loli.net/2023/12/02/zjTqc2vrVQMNxAd.png" /></p>
               
             </div>
           </div><footer>
