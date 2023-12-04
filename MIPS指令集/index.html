@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../MIPS%E6%8C%87%E4%BB%A4%E9%9B%86/">
+        <link rel="prev" href="../none/">
       
       
-        <link rel="next" href="../%E5%9F%BA%E4%BA%8ECLion%E7%9A%84STM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+        <link rel="next" href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>微体系结构 - Eachan_s_CookBook</title>
+        <title>MIPS指令集 - Eachan_s_CookBook</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#single-cycle-mips" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              微体系结构
+              MIPS指令集
             
           </span>
         </div>
@@ -376,27 +376,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../MIPS%E6%8C%87%E4%BB%A4%E9%9B%86/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    MIPS指令集
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -411,7 +390,7 @@
           
   
   <span class="md-ellipsis">
-    微体系结构
+    MIPS指令集
   </span>
   
 
@@ -422,7 +401,7 @@
         
   
   <span class="md-ellipsis">
-    微体系结构
+    MIPS指令集
   </span>
   
 
@@ -442,27 +421,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#single-cycle-mips" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Single-Cycle MIPS
+      寄存器文件
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#multicycle-mips" class="md-nav__link">
+  <a href="#bj" class="md-nav__link">
     <span class="md-ellipsis">
-      Multicycle MIPS
+      B、J指令
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pipeline-v-mips" class="md-nav__link">
+  <a href="#r" class="md-nav__link">
     <span class="md-ellipsis">
-      Pipeline -V MIPS
+      R指令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      I指令
     </span>
   </a>
   
@@ -472,6 +460,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    微体系结构
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -574,27 +583,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#single-cycle-mips" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Single-Cycle MIPS
+      寄存器文件
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#multicycle-mips" class="md-nav__link">
+  <a href="#bj" class="md-nav__link">
     <span class="md-ellipsis">
-      Multicycle MIPS
+      B、J指令
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pipeline-v-mips" class="md-nav__link">
+  <a href="#r" class="md-nav__link">
     <span class="md-ellipsis">
-      Pipeline -V MIPS
+      R指令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      I指令
     </span>
   </a>
   
@@ -615,135 +633,564 @@
                   
 
 
-  <h1>微体系结构</h1>
+  <h1>MIPS指令集</h1>
 
-<h2 id="single-cycle-mips">Single-Cycle MIPS<a class="headerlink" href="#single-cycle-mips" title="Permanent link">&para;</a></h2>
-<p>单周期处理器的数据路径易于构建，而时序需要考虑。</p>
-<p>Verilog实现项目Ref ：<a href="https://github.com/yceachan/Single-Cycle-MIPS">https://github.com/yceachan/Single-Cycle-MIPS</a></p>
-<p>Ref：<a href="https://nju-projectn.github.io/dlco-lecture-note/exp/11.html#cpu">实验十一 RV32I单周期CPU — 南京大学 计算机科学与技术系 数字逻辑与计算机组成 课程实验 documentation (nju-projectn.github.io)</a></p>
-<blockquote>
-<p>在单周期CPU中，所有操作均需要在一个周期内完成。其中单周期存储部件的读写是时序设计的关键。</p>
-<p>以下为nju数组实验推荐的单周期cpu时序</p>
-</blockquote>
-<p><img alt="image-20231201193152975" src="https://s2.loli.net/2023/12/02/kzXaPLe51UVsOSq.png" /></p>
-<blockquote>
-<p>以下为《数字设计与计算机体系结构》（黑皮书)给出的MIPS数据路径。</p>
-<p>图中，Imem的地址输入宜改为pc'  ，改为同步时序器件。</p>
-</blockquote>
-<p><img alt="image-20231201193404784" src="https://s2.loli.net/2023/12/02/LJNZKuhOeRFmiPq.png" /></p>
-<h2 id="multicycle-mips">Multicycle MIPS<a class="headerlink" href="#multicycle-mips" title="Permanent link">&para;</a></h2>
-<blockquote>
-<ul>
-<li>datapath</li>
-</ul>
-</blockquote>
-<p><img alt="image-20231201162917358" src="https://s2.loli.net/2023/12/02/jSvfq8HXyLU5zeK.png" /></p>
-<blockquote>
-<ul>
-<li>fetch dataflow</li>
-</ul>
-</blockquote>
-<p>-D触发器在时钟上升沿触发，存储器在下降沿读出。</p>
-<p>-故可在PC自增的一个周期内，读出Instr。</p>
-<p><img alt="image-20231201163003534" src="https://s2.loli.net/2023/12/02/4yLkEuOh31NAQjV.png" /></p>
-<blockquote>
-<ul>
-<li>decode data flow
--Instr在上升沿更新，RF可在下降沿或组合逻辑读出，并在上升沿将读通道RF_RD1,RD_RD2 更新到触发器A、B
--在一个指令尚未完成时，PC寄存器被锁住，不用担心Imm与A、B的不同拍问题。</li>
-</ul>
-</blockquote>
-<p><img alt="image-20231201163221595" src="https://s2.loli.net/2023/12/02/iUZIMeDY4naqpj7.png" /></p>
-<blockquote>
-<ul>
-<li>execute data flow
--ALU是纯组合逻辑，其输出打一拍ALUOut连向存储器寻址（访存指令是无周期）
--当ALU用于PC自增时，不再打拍，直接连向PC‘（PC被锁住），PC’在这几个周期计算结果都为PC+4</li>
-</ul>
-</blockquote>
-<p><img alt="image-20231201163817021" src="https://s2.loli.net/2023/12/02/TFzR4QlwWtIrUKc.png" /></p>
-<blockquote>
-<ul>
-<li>memory and writeback
--在4th时钟的上升沿，写入数据存储器。完成四周期指令sw
--在4th时钟的下降沿，再读出数据存储器，获得五周期lw指令的装载字。
--在5th时钟的上升沿，更新到Data触发器，在下降沿，写入RF。
--在6th时钟，PC解锁，迭代更新。</li>
-</ul>
-</blockquote>
-<p><img alt="" src="https://s2.loli.net/2023/12/02/CO3ETFytN5KeYwL.png" /></p>
-<p>控制信号需要使用状态机流转。  </p>
-<blockquote>
-<ul>
-<li>controller fsm</li>
-</ul>
-</blockquote>
-<p><img alt="image-20231201161312582" src="https://s2.loli.net/2023/12/02/YwBvLtUmI2jizPM.png" /></p>
-<h2 id="pipeline-v-mips">Pipeline -V MIPS<a class="headerlink" href="#pipeline-v-mips" title="Permanent link">&para;</a></h2>
-<blockquote>
-<ul>
-<li>datapath</li>
-</ul>
-<p>存储器还是在时钟的下降沿读出/写入;</p>
-<p>将每一阶段的输出打拍传给下一阶段，完成流水线的结构。</p>
-</blockquote>
-<p><img alt="image-20231201165234832" src="https://s2.loli.net/2023/12/02/CrSihYWEpyZt8J9.png" /></p>
-<blockquote>
-<ul>
-<li>pipeline view</li>
-</ul>
-</blockquote>
-<p>深色-使用中，浅色-未使用。</p>
-<p>IM : instruction memory fetch</p>
-<p>RF(01) : decode，regfile read out。左为写端口，右为读端口</p>
-<p>DM : data memory access</p>
-<p>RF(1:0):writeback</p>
-<p><img alt="image-20231201165522927" src="https://s2.loli.net/2023/12/02/z56Y9fl1iwdCKEj.png" /></p>
-<blockquote>
-<ul>
-<li>流水线冲突 与数据前推/重定向解决方案</li>
-<li>RAW：read after write</li>
-</ul>
-</blockquote>
-<p>如图，指令1，s0的运算结果，在时钟3的组合逻辑阶段已经算出，带时钟5下降沿才被写回RF。在时钟6后才可以从RF中读出。</p>
-<p>故而考虑重定向信号：有红/橙两种重定向路径。</p>
-<p>分析应基于时钟顺序。</p>
-<p>在clk3的组合逻辑期间，res_e被计算出，在res_w的上身沿，数据推到RF的写通道，在clk5的前半个时钟写入RF。</p>
-<p>在clk4，alu的操作数src_e应被重定向为res_m</p>
-<p>在clk5，alu的操作数src_e应被重顶向为res_w</p>
-<p>在clk5，考虑指令0和指令3，同时对RF的s0寄存器执行了写和读操作。<strong>在一定的存储器时序特性下，不需要重定向数据源</strong>。</p>
-<p>具体的，存储器器件应具有写后读特性。在系统时钟的边沿时刻，<strong>若存储器输入端口同时有对同一地址的写和读操作，写操作需要先被完成，且读操作读出此时的写结果。</strong>（而非上一拍数据，考虑D触发器的同时读写操作，不具备此时序特性，DQ--&gt;D---&gt;D'。后级触发器读出结果为D的上一拍。)</p>
-<p>可行的存储器结构为：</p>
-<p>1<em> 以上升沿作为时钟起点，</em><em>在时钟的下降沿的执行写操作</em>*（为获得尽可能好的同步时序特性）；使用组合逻辑，以非同步形式读出RF。读通道连向后级DF，在下一个时钟，后级DF的数据可用。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">rf_sync_write</span><span class="p">(</span><span class="w">   </span><span class="c1">//异步rf 伪代码</span>
-<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span><span class="n">addr</span><span class="p">,</span><span class="n">we</span><span class="p">,</span>
-<span class="w">    </span><span class="k">inout</span><span class="w"> </span><span class="n">din</span><span class="p">,</span><span class="n">dout</span>
-<span class="p">);</span>
-<span class="kt">reg</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="mh">32</span><span class="p">];</span>
-<span class="w">    </span><span class="k">always</span><span class="p">(@</span><span class="k">negedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">we</span><span class="p">)</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">din</span><span class="p">;</span>
-<span class="k">assign</span><span class="w"> </span><span class="n">dout</span><span class="w"> </span><span class="o">=</span><span class="n">mem</span><span class="p">[</span><span class="n">addr</span><span class="p">];</span>
-</code></pre></div>
-
-<p>2<em>在前半周期，使能RF的写操作，在后半周期，使能RF的读操作。</em><em>即，对RF读写的分时访问</em>*</p>
-<div class="codehilite"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">rf_async</span><span class="p">(</span><span class="w">   </span><span class="c1">//异步rf 伪代码</span>
-<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span><span class="n">addr</span><span class="p">,</span><span class="n">we</span><span class="p">,</span>
-<span class="w">    </span><span class="k">inout</span><span class="w"> </span><span class="n">din</span><span class="p">,</span><span class="n">dout</span>
-<span class="p">);</span>
-<span class="kt">reg</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="mh">32</span><span class="p">];</span>
-<span class="w">    </span><span class="k">always</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">we</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">clk</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">din</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span><span class="o">=</span><span class="n">mem</span><span class="p">[</span><span class="n">addr</span><span class="p">];</span>
-<span class="w">    </span><span class="c1">//*以锁存器而非wire的必要性？</span>
-<span class="w">    </span><span class="k">always</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">we</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">clk</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mem</span><span class="p">[</span><span class="n">addr</span><span class="p">];</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">dout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dout</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">//assign dout = mem[addr];</span>
-</code></pre></div>
-
-<p><img src="https://s2.loli.net/2023/12/02/tWHOfZeqvJaFlzp.png" alt="image-20231201170217510" style="zoom:67%;" /></p>
-<blockquote>
-<ul>
-<li>重定向数据路径 ；数据旁路</li>
-</ul>
-</blockquote>
-<p>如图，使用访存、写回阶段的运算结果对执行阶段的操作数进行重定向</p>
-<p><img alt="image-20231201180023490" src="https://s2.loli.net/2023/12/02/zjTqc2vrVQMNxAd.png" /></p>
+<h2 id="_1">寄存器文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>PC不在寄存器文件RF中。</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>寄存器</th>
+<th>功能</th>
+<th>编号</th>
+<th>寄存器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>$0</td>
+<td>常量0</td>
+<td>24~25</td>
+<td>$t8~$t9</td>
+<td>临时变量</td>
+</tr>
+<tr>
+<td>1</td>
+<td>$at</td>
+<td>汇编器保留</td>
+<td>26~27</td>
+<td>$k0~$k1</td>
+<td>操作系统临时变量</td>
+</tr>
+<tr>
+<td>2~3</td>
+<td>$v0~$v1</td>
+<td>函数返回值</td>
+<td>28</td>
+<td>$gp</td>
+<td>全局指针</td>
+</tr>
+<tr>
+<td>4~7</td>
+<td>$a1~$a3</td>
+<td>函数参数</td>
+<td>29</td>
+<td>$sp</td>
+<td>堆指针</td>
+</tr>
+<tr>
+<td>8~15</td>
+<td>$t0~$t7</td>
+<td>临时变量</td>
+<td>30</td>
+<td>$fp</td>
+<td>栈指针</td>
+</tr>
+<tr>
+<td>16~23</td>
+<td>$s0~$s7</td>
+<td>保存变量</td>
+<td>31</td>
+<td>$ra</td>
+<td>函数返回地址</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bj">B、J指令<a class="headerlink" href="#bj" title="Permanent link">&para;</a></h2>
+<p>PC跳转指令，目的地址计算如下：</p>
+<p><span class="arithmatex">\(JTA(label[25:0]) = \{\ PCplus4[31:28] \ ,\ label \ ,\  2'b0 \ \}\)</span></p>
+<p><span class="arithmatex">\(BTA(offset[15:0]) = PCplus4 + (offset &lt;&lt; 2)\)</span></p>
+<table>
+<thead>
+<tr>
+<th>J型指令</th>
+<th>功能</th>
+<th>汇编</th>
+<th>机器码格式</th>
+<th>伪代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>j</td>
+<td>无条件跳转</td>
+<td>j target</td>
+<td>000010 label</td>
+<td>PC = JTA</td>
+</tr>
+<tr>
+<td>jal</td>
+<td>子程序调用</td>
+<td>jal target</td>
+<td>000011 label</td>
+<td>$ra = PC + 4; PC = JTA</td>
+</tr>
+<tr>
+<td>jalr</td>
+<td>子程序调用寄存器</td>
+<td>jalr $rs, $rd</td>
+<td>000000 $rs 00000 00000 00000 001001</td>
+<td>$ra = PC + 4; PC = JTA(rs)</td>
+</tr>
+<tr>
+<td>jr</td>
+<td>跳转寄存器</td>
+<td>jr $rs</td>
+<td>000000 $rs 00000 00000 00000 001000</td>
+<td>PC =  JTA(rs)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>B型指令</th>
+<th>功能</th>
+<th>汇编</th>
+<th>机器码格式</th>
+<th>伪代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bltz</td>
+<td>分支小于零</td>
+<td>bltz $rs, label</td>
+<td>000001 $rs 00000  offset</td>
+<td>if ( [rs] &lt; 0) PC =BTA</td>
+</tr>
+<tr>
+<td>bgez</td>
+<td>分支大于等于零</td>
+<td>bgez $rs, label</td>
+<td>000001 $rs 00000  offset</td>
+<td>if ( [rs] &gt;= 0) PC = BTA</td>
+</tr>
+<tr>
+<td>beq</td>
+<td>相等分支</td>
+<td>beq $rs, $rt, label</td>
+<td>000100 $rs $rt offset</td>
+<td>if ( [rs] == [rt] ) PC = BTA</td>
+</tr>
+<tr>
+<td>bne</td>
+<td>不等分支</td>
+<td>bne $rs, $rt, label</td>
+<td>000101 $rs $rt offset</td>
+<td>if ( [rs] != [rt] ) PC = BTA</td>
+</tr>
+<tr>
+<td>blez</td>
+<td>分支小于等于零</td>
+<td>blez $rs, label</td>
+<td>000110 $rs 00000 offset</td>
+<td>if ( [rs] &lt;= 0) PC = BTA</td>
+</tr>
+<tr>
+<td>bgtz</td>
+<td>分支大于零</td>
+<td>bgtz $rs, label</td>
+<td>000111 $rs 00000  offset</td>
+<td>if ( [rs] &gt; 0) PC = BTA</td>
+</tr>
+<tr>
+<td>bclf</td>
+<td>分支协处理器条件为假</td>
+<td>bclf $rs, label</td>
+<td>010001 $rs 00000  offset</td>
+<td>if (!Coprocessor1[$rs] ) PC = BTA</td>
+</tr>
+<tr>
+<td>blct</td>
+<td>分支协处理器条件为真</td>
+<td>blct $rs, label</td>
+<td>010001 $rs 00000  offset</td>
+<td>if (Coprocessor1[$rs] ) PC = BTA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="r">R指令<a class="headerlink" href="#r" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>R型指令</th>
+<th>功能</th>
+<th>汇编</th>
+<th>机器码格式</th>
+<th>伪代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sll</td>
+<td>逻辑左移</td>
+<td>sll $rd, $rt, sa</td>
+<td>000000 00000 $rt $rd sa 000000</td>
+<td>[rd] = [rt] &lt;&lt; sa</td>
+</tr>
+<tr>
+<td>srl</td>
+<td>逻辑右移</td>
+<td>srl $rd, $rt, sa</td>
+<td>000000 00000 $rt $rd sa 000010</td>
+<td>[rd] = [rt] &gt;&gt; sa</td>
+</tr>
+<tr>
+<td>sra</td>
+<td>算术右移</td>
+<td>sra $rd, $rt, sa</td>
+<td>000000 00000 $rt $rd sa 000011</td>
+<td>[rd] = [rt] &gt;&gt; sa (算术)</td>
+</tr>
+<tr>
+<td>sllv</td>
+<td>逻辑左移变量</td>
+<td>sllv $rd, $rt, $rs</td>
+<td>000000 $rs $rt $rd 00000 000100</td>
+<td>[rd] = [rt] &lt;&lt; [rs]</td>
+</tr>
+<tr>
+<td>srlv</td>
+<td>逻辑右移变量</td>
+<td>srlv $rd, $rt, $rs</td>
+<td>000000 $rs $rt $rd 00000 000110</td>
+<td>[rd] = [rt] &gt;&gt; [rs]</td>
+</tr>
+<tr>
+<td>srav</td>
+<td>算术右移变量</td>
+<td>srav $rd, $rt, $rs</td>
+<td>000000 $rs $rt $rd 00000 000111</td>
+<td>[rd] = [rt] &gt;&gt; [rs] (算术)</td>
+</tr>
+<tr>
+<td>jr</td>
+<td>跳转寄存器</td>
+<td>jr $rs</td>
+<td>000000 $rs 00000 00000 00000 001000</td>
+<td>PC = [rs]</td>
+</tr>
+<tr>
+<td>jalr</td>
+<td>子程序调用寄存器</td>
+<td>jalr $rs, $rd</td>
+<td>000000 $rs 00000 $rd 00000 001001</td>
+<td>$rd = PC + 4; PC = [rs]</td>
+</tr>
+<tr>
+<td>add</td>
+<td>加法</td>
+<td>add $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 100000</td>
+<td>[rd] = [rs] + [rt]</td>
+</tr>
+<tr>
+<td>addu</td>
+<td>加法（无符号）</td>
+<td>addu $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 100001</td>
+<td>[rd] = [rs] + [rt] (无符号)</td>
+</tr>
+<tr>
+<td>sub</td>
+<td>减法</td>
+<td>sub $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 100010</td>
+<td>[rd] = [rs] - [rt]</td>
+</tr>
+<tr>
+<td>subu</td>
+<td>减法（无符号）</td>
+<td>subu $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 100011</td>
+<td>[rd] = [rs] - [rt] (无符号)</td>
+</tr>
+<tr>
+<td>and</td>
+<td>与运算</td>
+<td>and $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 100100</td>
+<td>[rd] = [rs] &amp; [rt]</td>
+</tr>
+<tr>
+<td>or</td>
+<td>或运算</td>
+<td>or $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 100101</td>
+<td>[rd] = [rs]  | [rt]</td>
+</tr>
+<tr>
+<td>xor</td>
+<td>异或运算</td>
+<td>xor $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 100110</td>
+<td>[rd] = [rs] ^ [rt]</td>
+</tr>
+<tr>
+<td>nor</td>
+<td>非或运算</td>
+<td>nor $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 100111</td>
+<td>[rd] = ~( [rs]  | [rt] )</td>
+</tr>
+<tr>
+<td>slt</td>
+<td>小于比较</td>
+<td>slt $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 101010</td>
+<td>[rd] = ( [rs] &lt; [rt] ) ? 1 : 0</td>
+</tr>
+<tr>
+<td>sltu</td>
+<td>小于比较（无符号）</td>
+<td>sltu $rd, $rs, $rt</td>
+<td>000000 $rs $rt $rd 00000 101011</td>
+<td>[rd] = ( [rs] &lt; [rt] ) ? 1 : 0 (无符号)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>syscall</td>
+<td>系统调用</td>
+<td>syscall</td>
+<td>000000 00000 00000 00000 00000 001100</td>
+<td>ExecuteSystemCall()</td>
+</tr>
+<tr>
+<td>break</td>
+<td>断点</td>
+<td>break code</td>
+<td>000000 00000 code code code code 001101</td>
+<td>Break(code)</td>
+</tr>
+<tr>
+<td>mfhi</td>
+<td>从HI寄存器读取</td>
+<td>mfhi $rd</td>
+<td>000000 00000 00000 $rd 00000 010000</td>
+<td>[rd] = HI</td>
+</tr>
+<tr>
+<td>mthi</td>
+<td>向HI寄存器写入</td>
+<td>mthi $rs</td>
+<td>000000 $rs 00000 00000 00000 010001</td>
+<td>HI = [rs]</td>
+</tr>
+<tr>
+<td>mflo</td>
+<td>从LO寄存器读取</td>
+<td>mflo $rd</td>
+<td>000000 00000 00000 $rd 00000 010010</td>
+<td>[rd] = LO</td>
+</tr>
+<tr>
+<td>mtlo</td>
+<td>向LO寄存器写入</td>
+<td>mtlo $rs</td>
+<td>000000 $rs 00000 00000 00000 010011</td>
+<td>LO = [rs]</td>
+</tr>
+<tr>
+<td>mult</td>
+<td>乘法</td>
+<td>mult $rs, $rt</td>
+<td>000000 $rs $rt 00000 00000 011000</td>
+<td>{HI, LO} = [rs] * [rt]</td>
+</tr>
+<tr>
+<td>multu</td>
+<td>乘法（无符号）</td>
+<td>multu $rs, $rt</td>
+<td>000000 $rs $rt 00000 00000 011001</td>
+<td>{HI, LO} = [rs] * [rt] (无符号)</td>
+</tr>
+<tr>
+<td>div</td>
+<td>除法</td>
+<td>div $rs, $rt</td>
+<td>000000 $rs $rt 00000 00000 011010</td>
+<td>LO = [rs] / [rt]; HI = [rs] % [rt]</td>
+</tr>
+<tr>
+<td>divu</td>
+<td>除法（无符号）</td>
+<td>divu $rs, $rt</td>
+<td>000000 $rs $rt 00000 00000 011011</td>
+<td>LO = [rs] / [rt] (无符号); HI = [rs] % [rt] (无符号)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="i">I指令<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>I型指令</th>
+<th>功能</th>
+<th>汇编</th>
+<th>机器码格式</th>
+<th>伪代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addi</td>
+<td>加法立即数</td>
+<td>addi $rt, $rs, imm</td>
+<td>001000 $rs $rt imm</td>
+<td>[rt] = [rs] + imm</td>
+</tr>
+<tr>
+<td>addiu</td>
+<td>加法立即数（无符号）</td>
+<td>addiu $rt, $rs, imm</td>
+<td>001001 $rs $rt imm</td>
+<td>[rt] = [rs] + imm (无符号)</td>
+</tr>
+<tr>
+<td>slti</td>
+<td>小于比较立即数</td>
+<td>slti $rt, $rs, imm</td>
+<td>001010 $rs $rt imm</td>
+<td>[rt] = ( [rs] &lt; imm) ? 1 : 0</td>
+</tr>
+<tr>
+<td>sltiu</td>
+<td>小于比较立即数（无符号）</td>
+<td>sltiu $rt, $rs, imm</td>
+<td>001011 $rs $rt imm</td>
+<td>[rt] = ( [rs] &lt; imm) ? 1 : 0 (无符号)</td>
+</tr>
+<tr>
+<td><strong>andi</strong></td>
+<td><strong>与运算立即数</strong></td>
+<td><strong>andi $rt, $rs, imm</strong></td>
+<td><strong>001100 $rs $rt imm</strong></td>
+<td><strong>[rt] = [rs] &amp; imm</strong></td>
+</tr>
+<tr>
+<td><strong>ori</strong></td>
+<td><strong>或运算立即数</strong></td>
+<td><strong>ori $rt, $rs, imm</strong></td>
+<td><strong>001101 $rs $rt imm</strong></td>
+<td><strong>[rt] = [rs]  | imm</strong></td>
+</tr>
+<tr>
+<td><strong>xori</strong></td>
+<td><strong>异或运算立即数</strong></td>
+<td><strong>xori $rt, $rs, imm</strong></td>
+<td><strong>001110 $rs $rt imm</strong></td>
+<td><strong>[rt] = [rs] ^ imm</strong></td>
+</tr>
+<tr>
+<td><strong>lui</strong></td>
+<td><strong>装载上位数</strong></td>
+<td><strong>lui $rt, imm</strong></td>
+<td><strong>001111 00000 $rt imm</strong></td>
+<td><strong>[rt] = imm &lt;&lt; 16</strong></td>
+</tr>
+<tr>
+<td>mul</td>
+<td>乘法</td>
+<td>mul $rd, $rs, $rt</td>
+<td>011100 $rs $rt $rd 00000 000010</td>
+<td>[rd] = [rs] * [rt]</td>
+</tr>
+<tr>
+<td>lb</td>
+<td>加载字节</td>
+<td>lb $rt, offset($base)</td>
+<td>100000 $base $rt offset</td>
+<td>[rt] = SignExtend(Mem[ [base] + offset] )</td>
+</tr>
+<tr>
+<td>lh</td>
+<td>加载半字</td>
+<td>lh $rt, offset($base)</td>
+<td>100001 $base $rt offset</td>
+<td>[rt] = SignExtend(Mem[ [base] + offset] )</td>
+</tr>
+<tr>
+<td><strong>lw</strong></td>
+<td><strong>加载字</strong></td>
+<td><strong>lw $rt, offset($base)</strong></td>
+<td><strong>100011 $base $rt offset</strong></td>
+<td><strong>[rt] = Mem[ [base] + offset]</strong></td>
+</tr>
+<tr>
+<td>lbu</td>
+<td>加载字节（无符号）</td>
+<td>lbu $rt, offset($base)</td>
+<td>100100 $base $rt offset</td>
+<td>[rt] = ZeroExtend(Mem[ [base] + offset] )</td>
+</tr>
+<tr>
+<td>lhu</td>
+<td>加载半字（无符号）</td>
+<td>lhu $rt, offset($base)</td>
+<td>100101 $base $rt offset</td>
+<td>[rt] = ZeroExtend(Mem[ [base] + offset] )</td>
+</tr>
+<tr>
+<td>sb</td>
+<td>存储字节</td>
+<td>sb $rt, offset($base)</td>
+<td>101000 $base $rt offset</td>
+<td>Mem[ [base] + offset] = [rt]</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>存储半字</td>
+<td>sh $rt, offset($base)</td>
+<td>101001 $base $rt offset</td>
+<td>Mem[ [base] + offset] = [rt]</td>
+</tr>
+<tr>
+<td><strong>sw</strong></td>
+<td><strong>存储字</strong></td>
+<td><strong>sw $rt, offset($base)</strong></td>
+<td><strong>101011 $base $rt offset</strong></td>
+<td><strong>Mem[ [base] + offset] = [rt]</strong></td>
+</tr>
+<tr>
+<td>lwcl</td>
+<td>原子地加载字</td>
+<td>lwcl $rt, offset($base)</td>
+<td>110000 $base $rt offset</td>
+<td>[rt] = Mem[ [base] + offset]]</td>
+</tr>
+<tr>
+<td>swcl</td>
+<td>原子地存储字</td>
+<td>swcl $rt, offset($base)</td>
+<td>111000 $base $rt offset</td>
+<td>mem[ [base] + offset] = [rt]</td>
+</tr>
+<tr>
+<td>mfc0</td>
+<td>从协处理器寄存器读取</td>
+<td>mfc0 $rt, $rd</td>
+<td>010000 $rd 00000 $rt 00000 000000</td>
+<td>[rt] = Coprocessor0[$rd]</td>
+</tr>
+<tr>
+<td>mtc0</td>
+<td>向协处理器寄存器写入</td>
+<td>mtc0 $rt, $rd</td>
+<td>010000 $rd 00100 $rt 00000 000000</td>
+<td>Coprocessor0[$rd] = [rt]</td>
+</tr>
+</tbody>
+</table>
 
 
 

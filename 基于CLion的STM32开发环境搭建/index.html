@@ -1,106 +1,1029 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="yceachan" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>基于Clion的STM32开发环境搭建 - Eachan_s_CookBook</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "\u57fa\u4e8eClion\u7684STM32\u5f00\u53d1\u73af\u5883\u642d\u5efa";
-        var mkdocs_page_input_path = "\u57fa\u4e8eCLion\u7684STM32\u5f00\u53d1\u73af\u5883\u642d\u5efa.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="yceachan">
+      
+      
+      
+        <link rel="prev" href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>基于Clion的STM32开发环境搭建 - Eachan_s_CookBook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Eachan_s_CookBook
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">杂项</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../gitCookBook/">git</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../VSC%E6%9C%AD%E8%AE%B0/">vscode</a>
-                  </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../none/">数据结构与算法</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">数字设计与计算机体系结构</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../none/">基于vscode的verilog环境搭建</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">微体系结构</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">嵌入式系统设计</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">基于Clion的STM32开发环境搭建</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#arm-none-eabi-gcc">arm-none-eabi-gcc</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#openocd">openOCD</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#mingw32">MinGW32</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#mingw-w64">MinGW-w64</a>
-    </li>
-    </ul>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Eachan_s_CookBook" class="md-header__button md-logo" aria-label="Eachan_s_CookBook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eachan_s_CookBook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基于Clion的STM32开发环境搭建
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Eachan_s_CookBook</a>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">嵌入式系统设计</li>
-      <li class="breadcrumb-item active">基于Clion的STM32开发环境搭建</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <blockquote>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Eachan_s_CookBook" class="md-nav__button md-logo" aria-label="Eachan_s_CookBook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Eachan_s_CookBook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    杂项
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            杂项
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitCookBook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VSC%E6%9C%AD%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vscode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../none/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数字设计与计算机体系结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            数字设计与计算机体系结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../none/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于vscode的verilog环境搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MIPS%E6%8C%87%E4%BB%A4%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MIPS指令集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    微体系结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    嵌入式系统设计
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            嵌入式系统设计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    基于Clion的STM32开发环境搭建
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    基于Clion的STM32开发环境搭建
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      工具链下载
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具链下载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arm-none-eabi-gcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      arm-none-eabi-gcc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openocd" class="md-nav__link">
+    <span class="md-ellipsis">
+      openOCD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mingw32" class="md-nav__link">
+    <span class="md-ellipsis">
+      MinGW32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mingw-w64" class="md-nav__link">
+    <span class="md-ellipsis">
+      MinGW-w64
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clion-tool_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLion-&gt;项目tool_chain配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clion-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clion-&gt;项目Cmake配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clion-rundebug" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLion-&gt;项目Run/Debug配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openocdcfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      openOCD中“.cfg”的配置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include-stdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      include stdc++
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printf" class="md-nav__link">
+    <span class="md-ellipsis">
+      printf重定向
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      新建项目步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="新建项目步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1clionstm32" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.CLion新建stm32工程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2idecubemx" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.按照ide提示打开cubemx配置初始化代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3clioncfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.回到clion，为项目添加.cfg文件，否则将没有构建配置！！！
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3openocd" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.运行配置中添加"Openocd运行并下载"，并选中面板配置文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4cmakelist" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.配置cmakelist文件：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.配置cmakelist文件：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-g0include" class="md-nav__link">
+    <span class="md-ellipsis">
+      关闭优化(-g0)，添加include路径：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5programingcmakelistfileinclude_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.Programing，配置cmakelist的file，include_dir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6debugsvd" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.debug，选择svd文件从而监视外设
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      工具链下载
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具链下载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arm-none-eabi-gcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      arm-none-eabi-gcc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openocd" class="md-nav__link">
+    <span class="md-ellipsis">
+      openOCD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mingw32" class="md-nav__link">
+    <span class="md-ellipsis">
+      MinGW32
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mingw-w64" class="md-nav__link">
+    <span class="md-ellipsis">
+      MinGW-w64
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clion-tool_chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLion-&gt;项目tool_chain配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clion-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clion-&gt;项目Cmake配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clion-rundebug" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLion-&gt;项目Run/Debug配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openocdcfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      openOCD中“.cfg”的配置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include-stdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      include stdc++
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printf" class="md-nav__link">
+    <span class="md-ellipsis">
+      printf重定向
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      新建项目步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="新建项目步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1clionstm32" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.CLion新建stm32工程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2idecubemx" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.按照ide提示打开cubemx配置初始化代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3clioncfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.回到clion，为项目添加.cfg文件，否则将没有构建配置！！！
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3openocd" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.运行配置中添加"Openocd运行并下载"，并选中面板配置文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4cmakelist" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.配置cmakelist文件：
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.配置cmakelist文件：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-g0include" class="md-nav__link">
+    <span class="md-ellipsis">
+      关闭优化(-g0)，添加include路径：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5programingcmakelistfileinclude_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.Programing，配置cmakelist的file，include_dir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6debugsvd" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.debug，选择svd文件从而监视外设
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>基于Clion的STM32开发环境搭建</h1>
+
+<blockquote>
 <p>Before：mdk的ui和编辑体验属实让人难以接受，而vs Code + keil的解决方案仍是没有解决C的<strong>刀耕火种</strong>式的开发体验。</p>
 <p>单片机开发经历了汇编，寄存器c51，库函数时代，笔者还是觉得这些开发方式有些<strong>刀耕火种</strong>，也比较消磨学习的动力。甚至乎笔者觉得Arduino的类objective-C 也还不够方便。（想用stl捏）</p>
 <p>于是折腾半天，终于配置好了这套CLION+CubeMx+OpenOcd，现分享学习过程。</p>
@@ -125,86 +1048,89 @@
 <p>工具链：</p>
 <p>CLion + armgcc  + Cmake + openOCD</p>
 <p>CubeMx + HAL</p>
-<h2 id="_1">工具链下载</h2>
-<h3 id="arm-none-eabi-gcc"><strong>arm-none-eabi-gcc</strong></h3>
+<h2 id="_1">工具链下载<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="arm-none-eabi-gcc"><strong>arm-none-eabi-gcc</strong><a class="headerlink" href="#arm-none-eabi-gcc" title="Permanent link">&para;</a></h3>
 <p>Windows到这里下载：<a href="https://link.zhihu.com/?target=https%3A//developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads</a> ，选择ZIP压缩包形式的：</p>
-<h3 id="openocd"><strong>openOCD</strong></h3>
+<h3 id="openocd"><strong>openOCD</strong><a class="headerlink" href="#openocd" title="Permanent link">&para;</a></h3>
 <p><a href="https://github.com/openocd-org/openocd">openocd-org/openocd: Official OpenOCD Read-Only Mirror (no pull requests) (github.com)</a> 官方GIthub开源库，releases中下载</p>
-<h3 id="mingw32"><strong>MinGW</strong>32</h3>
+<h3 id="mingw32"><strong>MinGW</strong>32<a class="headerlink" href="#mingw32" title="Permanent link">&para;</a></h3>
 <p>请注意区别MinGW32 与MinGW-w64，前者已经停止维护，</p>
 <p><strong>MinGW</strong>32下载地址<a href="https://osdn.net/projects/mingw/releases/">Download File List - MinGW - Minimalist GNU for Windows - OSDN</a></p>
 <p>可以参阅[<a href="https://www.cnblogs.com/findumars/p/7492636.html">科普]MinGW vs MinGW-W64及其它（比较有意思，来自mingw吧） - findumars - 博客园 (cnblogs.com)</a></p>
 <p>笔者在下载这个工具集时，<strong>频繁报错msys下载失败</strong>。不过还是可以进行开发，实际用时发现有些问题，比如搜索不到一些C++库的路径，需要笔者手动添加搜索路径"armgcc/include"</p>
 <p>所以笔者对这个工具集不是很放心。</p>
 <p>关于MSYS的参阅<a href="https://zhuanlan.zhihu.com/p/266448826">使用MSYS的一些经验 - 知乎 (zhihu.com)</a></p>
-<h3 id="mingw-w64">MinGW-w64</h3>
+<h3 id="mingw-w64">MinGW-w64<a class="headerlink" href="#mingw-w64" title="Permanent link">&para;</a></h3>
 <p>根据笔者的检索结果，MinGW-w64可完全兼容MinGW32  （我觉得难说）。故选择MinGW-w64选择在官网下载latest10.0MinGW-w64. 不会从从源码编译</p>
 <p><strong>故退而选择CLION内置MINGW工具链：</strong></p>
 <p>其中，make为<code>C:\Program Files\JetBrains\CLion 2022.2.1\bin\mingw\bin\mingw32-make.exe</code></p>
 <p>配置三个工具的环境变量</p>
-<h2 id="_2">配置</h2>
-<h3 id="clion-tool_chain"><strong>CLion-&gt;项目tool_chain配置</strong></h3>
+<h2 id="_2">配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="clion-tool_chain"><strong>CLion-&gt;项目tool_chain配置</strong><a class="headerlink" href="#clion-tool_chain" title="Permanent link">&para;</a></h3>
 <p>工具集：CLION-MinGW，</p>
 <p>Make ： <code>C:\Program Files\JetBrains\CLion 2022.2.1\bin\mingw\bin\mingw32-make.exe</code></p>
 <p>complier ： arm-none-eabi-gcc/g++</p>
 <p><strong>debugger:  Clion built-in GDB</strong></p>
 <p><img alt="image-20230318123956399" src="https://s2.loli.net/2023/03/18/zfOALRgoiTI5wyq.png" /></p>
-<h3 id="clion-cmake"><strong>Clion-&gt;项目Cmake配置</strong></h3>
+<h3 id="clion-cmake"><strong>Clion-&gt;项目Cmake配置</strong><a class="headerlink" href="#clion-cmake" title="Permanent link">&para;</a></h3>
 <p><img alt="image-20230311201140591" src="https://s2.loli.net/2023/03/11/kxKbnv1aloLQhfP.png" /></p>
-<h3 id="clion-rundebug"><strong>CLion-&gt;项目Run/Debug配置</strong></h3>
+<h3 id="clion-rundebug"><strong>CLion-&gt;项目Run/Debug配置</strong><a class="headerlink" href="#clion-rundebug" title="Permanent link">&para;</a></h3>
 <p>debugger选用内置即可，不用armgdb</p>
 <p>注意配置cfg文件。在项目中放入cfg文件后他会自动生成camke配置</p>
 <p><img alt="image-20230311201325283" src="https://s2.loli.net/2023/03/11/6xZeu5fyw3TaK8r.png" /></p>
 <p>需要添加cmake程序和OpenOCD烧录器</p>
-<h3 id="openocdcfg"><strong>openOCD中“.cfg”的配置</strong></h3>
+<h3 id="openocdcfg"><strong>openOCD中“.cfg”的配置</strong><a class="headerlink" href="#openocdcfg" title="Permanent link">&para;</a></h3>
 <p>笔者使用dap，需要自己手写<strong>"dap.cfg"</strong></p>
 <p><strong>注意这个.cfg关系到项目的构筑配置，不写入这个文件cmake是build不出的</strong></p>
 <p>.<strong>详见ref</strong></p>
 <blockquote>
 <p><strong>interface</strong> 文件夹存储了各种调试器的配置文件，包括 cmsis-dap、stlink-v2 等。<strong>target</strong> 文件夹则存储了各种芯片的配置文件，例如 <em>stm32f1x.cfg</em> 就对应着 STM32F1 系列。正点原子、野火等国内企业出品的开发板不属于官方开发板，自然在 <strong>board</strong> 文件夹中不会有他们的配置文件，因此我们需要根据自己使用的调试器和芯片，写自己的配置文件。</p>
 </blockquote>
-<pre><code class="language-cpp">## choose st-link/j-link/dap-link etc.
-adapter driver cmsis-dap
-cmsis_dap_backend hid
-transport select swd
+<div class="codehilite"><pre><span></span><code><span class="cp">## choose st-link/j-link/dap-link etc.</span>
+<span class="n">adapter</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">cmsis</span><span class="o">-</span><span class="n">dap</span>
+<span class="n">cmsis_dap_backend</span><span class="w"> </span><span class="n">hid</span>
+<span class="n">transport</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">swd</span>
 
-## 0x10000 = 64K Flash Size
-set FLASH_SIZE 0x160000  //视开发板片内flash资源而定
+<span class="cp">## 0x10000 = 64K Flash Size</span>
+<span class="n">set</span><span class="w"> </span><span class="n">FLASH_SIZE</span><span class="w"> </span><span class="mh">0x160000</span><span class="w">  </span><span class="c1">//视开发板片内flash资源而定</span>
 
-source [find target/stm32f4x.cfg]
+<span class="n">source</span><span class="w"> </span><span class="p">[</span><span class="n">find</span><span class="w"> </span><span class="n">target</span><span class="o">/</span><span class="n">stm32f4x</span><span class="p">.</span><span class="n">cfg</span><span class="p">]</span>
 
-## download speed = 1MHz
-adapter speed 1000 //
-</code></pre>
-<h2 id="include-stdc">include stdc++</h2>
+<span class="cp">## download speed = 1MHz</span>
+<span class="n">adapter</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="c1">//</span>
+</code></pre></div>
+
+<h2 id="include-stdc">include stdc++<a class="headerlink" href="#include-stdc" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>如果使用稚晖的MingGW32，需要配置这些，CLION内置的MINGW64不用</p>
 </blockquote>
 <p>将main文件改为cpp后缀，在cmakelist文件中，添加头文件搜索路径：</p>
-<pre><code class="language-cpp">#include目录
-include_directories(Core/Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32F4xx/Include Drivers/CMSIS/Include
-        D:/CubeMX/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include目录</span>
+<span class="n">include_directories</span><span class="p">(</span><span class="n">Core</span><span class="o">/</span><span class="n">Inc</span><span class="w"> </span><span class="n">Drivers</span><span class="o">/</span><span class="n">STM32F4xx_HAL_Driver</span><span class="o">/</span><span class="n">Inc</span><span class="w"> </span><span class="n">Drivers</span><span class="o">/</span><span class="n">STM32F4xx_HAL_Driver</span><span class="o">/</span><span class="n">Inc</span><span class="o">/</span><span class="n">Legacy</span><span class="w"> </span><span class="n">Drivers</span><span class="o">/</span><span class="n">CMSIS</span><span class="o">/</span><span class="n">Device</span><span class="o">/</span><span class="n">ST</span><span class="o">/</span><span class="n">STM32F4xx</span><span class="o">/</span><span class="n">Include</span><span class="w"> </span><span class="n">Drivers</span><span class="o">/</span><span class="n">CMSIS</span><span class="o">/</span><span class="n">Include</span>
+<span class="w">        </span><span class="nl">D</span><span class="p">:</span><span class="o">/</span><span class="n">CubeMX</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="mf">-10.3-2021.10</span><span class="o">/</span><span class="n">arm</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">eabi</span><span class="o">/</span><span class="n">include</span><span class="p">)</span>
+</code></pre></div>
+
 <p>添加上armgcc的include目录<code>/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include</code></p>
 <p><strong>关于本cmakelist各指令的讲解，可参考学长视频：</strong></p>
 <p>[<a href="https://www.bilibili.com/video/BV1EP4y1B7AE/?spm_id_from=333.999.0.0&amp;vd_source=d8c39ae6749f658d0698389713f47409">SWJTU-G308] CLion 配置嵌入式开发~_哔哩哔哩_bilibili</a></p>
-<h2 id="printf">printf重定向</h2>
+<h2 id="printf">printf重定向<a class="headerlink" href="#printf" title="Permanent link">&para;</a></h2>
 <p>参见稚晖文章，笔者觉得还挺麻烦的，遂罢，~~凑合用HAL库吧~~</p>
 <p>笔者选择自己搭建一套基于泛型的LOG框架。</p>
-<h2 id="program">Program</h2>
+<h2 id="program">Program<a class="headerlink" href="#program" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>如下可以开始优雅地使用c++开发</p>
 </blockquote>
-<pre><code class="language-cpp">void test()
-{
-    std::vector&lt;std::string&gt; vec={&quot;Hello embedded\n&quot;,&quot;Hello clion\n&quot;,&quot;Hello c++17\n&quot;,&quot;Hello std::vector,string,and object!&quot;};
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;Hello embedded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;Hello clion</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;Hello c++17</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;Hello std::vector,string,and object!&quot;</span><span class="p">};</span>
 
-    for( auto&amp; it:vec)
-    {
-        HAL_UART_Transmit(&amp;huart5,it.c_str(),it.size(),300);
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">it</span><span class="o">:</span><span class="n">vec</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">HAL_UART_Transmit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">huart5</span><span class="p">,</span><span class="n">it</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span><span class="n">it</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="mi">300</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>蓝牙串口信息：</p>
 <p><img alt="image-20230311202541092" src="https://s2.loli.net/2023/03/11/Cuyvc8QY7kMwaDt.png" /></p>
 <blockquote>
@@ -213,7 +1139,7 @@ include_directories(Core/Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_
 <p>从汇编到c/c++到java c#到python matlab。笔者认为stdc++ 是我喜欢的方式。在熟悉底层到寄存器和汇编的前提下，笔者很乐意用HAL库，用对象，用stl去完成任务。</p>
 <p>现代嵌入式设备的应用场景都落实到深度学习，神经网络，cv的部署上了，在大容量设备上，为什么不可以拥抱现代IDE和编程语言呢？关于运行效率，笔者只在嵌入式中听闻过c++效率不行。作为一个玩票的大学生，我可以口嗨一句embedded C过时了。</p>
 </blockquote>
-<h2 id="debug">Debug</h2>
+<h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Reference :<a href="https://www.jetbrains.com/help/clion/2022.3/openocd-support.html">OpenOCD support | CLion Documentation (jetbrains.com)</a></p>
 </blockquote>
@@ -221,63 +1147,70 @@ include_directories(Core/Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_
 <p>（详见本项目内核札记）</p>
 <p>Reference:</p>
 <p><a href="https://www.jetbrains.com/help/clion/2022.3/embedded-development.html?utm_source=product&amp;utm_medium=link&amp;utm_campaign=CL&amp;utm_content=2022.3#prepare-tools">STM32立方体MX项目 |CLion 文档 (jetbrains.com)</a></p>
-<h2 id="_3">新建项目步骤</h2>
-<h3 id="1clionstm32">1.CLion新建stm32工程</h3>
-<h3 id="2idecubemx">2.按照ide提示打开cubemx配置初始化代码</h3>
-<h3 id="3clioncfg"><strong>3.回到clion，为项目添加.cfg文件</strong>，否则将没有构建配置！！！</h3>
-<h3 id="3openocd">3.运行配置中添加"Openocd运行并下载"，并选中面板配置文件</h3>
-<h3 id="4cmakelist">4.配置cmakelist文件：</h3>
-<h4 id="-g0include">关闭优化(-g0)，添加include路径：</h4>
+<h2 id="_3">新建项目步骤<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1clionstm32">1.CLion新建stm32工程<a class="headerlink" href="#1clionstm32" title="Permanent link">&para;</a></h3>
+<h3 id="2idecubemx">2.按照ide提示打开cubemx配置初始化代码<a class="headerlink" href="#2idecubemx" title="Permanent link">&para;</a></h3>
+<h3 id="3clioncfg"><strong>3.回到clion，为项目添加.cfg文件</strong>，否则将没有构建配置！！！<a class="headerlink" href="#3clioncfg" title="Permanent link">&para;</a></h3>
+<h3 id="3openocd">3.运行配置中添加"Openocd运行并下载"，并选中面板配置文件<a class="headerlink" href="#3openocd" title="Permanent link">&para;</a></h3>
+<h3 id="4cmakelist">4.配置cmakelist文件：<a class="headerlink" href="#4cmakelist" title="Permanent link">&para;</a></h3>
+<h4 id="-g0include">关闭优化(-g0)，添加include路径：<a class="headerlink" href="#-g0include" title="Permanent link">&para;</a></h4>
 <p>不关，也行，懂编译原理的话。</p>
 <p><img alt="image-20230315174456701" src="https://s2.loli.net/2023/03/15/hK2p75Grq8ZkTAQ.png" /></p>
-<h3 id="5programingcmakelistfileinclude_dir">5.Programing，配置cmakelist的file，include_dir</h3>
+<h3 id="5programingcmakelistfileinclude_dir">5.Programing，配置cmakelist的file，include_dir<a class="headerlink" href="#5programingcmakelistfileinclude_dir" title="Permanent link">&para;</a></h3>
 <p><img alt="image-20230315182645185" src="https://s2.loli.net/2023/03/15/ABRC1WYPayvlQL8.png" /></p>
-<h3 id="6debugsvd">6.debug，选择svd文件从而监视外设</h3>
+<h3 id="6debugsvd">6.debug，选择svd文件从而监视外设<a class="headerlink" href="#6debugsvd" title="Permanent link">&para;</a></h3>
 <p>关于svd文件的意义，详见本项目CortexM内核札记</p>
 <p>@ref ：svd2rust：PAC(外设访问层) <a href="https://www.bilibili.com/video/BV1ki4y117vp/?spm_id_from=333.337.search-card.all.click">Rust嵌入式开发入门(02)--Rust嵌入式社区生态概览_哔哩哔哩_bilibili</a></p>
 <p>对应芯片的svd文件在keil中能找到，用evething搜索即可</p>
-              
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="btn btn-neutral float-left" title="微体系结构"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
+          
           
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

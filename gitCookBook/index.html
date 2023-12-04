@@ -1,147 +1,1047 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="yceachan" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>git - Eachan_s_CookBook</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "git";
-        var mkdocs_page_input_path = "gitCookBook.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="yceachan">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../VSC%E6%9C%AD%E8%AE%B0/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>git - Eachan_s_CookBook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Eachan_s_CookBook
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">杂项</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">git</a>
-    <ul class="current">
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../VSC%E6%9C%AD%E8%AE%B0/">vscode</a>
-                  </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../none/">数据结构与算法</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">数字设计与计算机体系结构</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../none/">基于vscode的verilog环境搭建</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">微体系结构</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">嵌入式系统设计</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E4%BA%8ECLion%E7%9A%84STM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">基于Clion的STM32开发环境搭建</a>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gitcookbook" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Eachan_s_CookBook" class="md-header__button md-logo" aria-label="Eachan_s_CookBook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eachan_s_CookBook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              git
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Eachan_s_CookBook</a>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">杂项</li>
-      <li class="breadcrumb-item active">git</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h2 id="gitcookbook">gitCookBook</h2>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Eachan_s_CookBook" class="md-nav__button md-logo" aria-label="Eachan_s_CookBook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Eachan_s_CookBook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    杂项
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            杂项
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    git
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    git
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gitcookbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      gitCookBook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      推送流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="推送流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh密匙制作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      初始化本地仓库并推送到远程端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      本地仓库初始化：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      推送到到远程仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      多分支推送多仓库
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      仓库同步命令手册
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仓库同步命令手册">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      远程仓库管理 git remote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-branchgit-checkout-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      分支管理     git branch、git checkout [branch]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-fetchpull" class="md-nav__link">
+    <span class="md-ellipsis">
+      分支拉取与合并冲突 git fetch/pull
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      .gitignore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      GIT工作模型 工作区 暂存区 版本库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      版本控制命令手册
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="版本控制命令手册">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-addrmcommit" class="md-nav__link">
+    <span class="md-ellipsis">
+      git add/rm/commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      git tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      git restore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-checkout" class="md-nav__link">
+    <span class="md-ellipsis">
+      git checkout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      git reset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用札记
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用札记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      大文件限制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VSC%E6%9C%AD%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vscode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../none/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构与算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数字设计与计算机体系结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            数字设计与计算机体系结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../none/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于vscode的verilog环境搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MIPS%E6%8C%87%E4%BB%A4%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MIPS指令集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BE%AE%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    微体系结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    嵌入式系统设计
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            嵌入式系统设计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9F%BA%E4%BA%8ECLion%E7%9A%84STM32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于Clion的STM32开发环境搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gitcookbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      gitCookBook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      推送流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="推送流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh密匙制作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      初始化本地仓库并推送到远程端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      本地仓库初始化：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      推送到到远程仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      多分支推送多仓库
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      仓库同步命令手册
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仓库同步命令手册">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      远程仓库管理 git remote
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-branchgit-checkout-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      分支管理     git branch、git checkout [branch]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-fetchpull" class="md-nav__link">
+    <span class="md-ellipsis">
+      分支拉取与合并冲突 git fetch/pull
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      .gitignore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      GIT工作模型 工作区 暂存区 版本库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      版本控制命令手册
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="版本控制命令手册">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-addrmcommit" class="md-nav__link">
+    <span class="md-ellipsis">
+      git add/rm/commit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      git tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      git restore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-checkout" class="md-nav__link">
+    <span class="md-ellipsis">
+      git checkout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      git reset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用札记
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用札记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      大文件限制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>git</h1>
+
+<h2 id="gitcookbook">gitCookBook<a class="headerlink" href="#gitcookbook" title="Permanent link">&para;</a></h2>
 <p>本札记是一个开源爱好者对git操作的归档。札记从将本地仓库推送至开源平台出发，记录了仓库的初始化、远程推送流程；远程、本地的版本同步手册；GIT工作模型与版本控制命令的札记。</p>
 <p><a href="https://oschina.gitee.io/opensource-guide/git_tutorial/Git 入门（初级篇）/Git 的入门使用/#commit-提交到本地存储库">Git 的入门使用 | 开源指北 (gitee.io)</a></p>
 <p><a href="https://juejin.cn/post/7040638672584048671">git reset &amp; checkout 详解 - 掘金 (juejin.cn)</a></p>
-<h2 id="_1">推送流程</h2>
-<h3 id="ssh">ssh密匙制作</h3>
+<h2 id="_1">推送流程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="ssh">ssh密匙制作<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h3>
 <p><a href="https://gitee.com/help/articles/4181">生成/添加SSH公钥 - Gitee.com</a></p>
 <p>要将项目开源到平台，首要问题是本地客户端与远端服务器的网络通信。常用通信协议是ssh，这需要配置公钥密钥，作为连接远端服务器的令牌。制作方式见Gitee。</p>
 <p>制作完的秘钥可应用应用在各种网络通信环节，只要这把秘钥与部署在服务器的公钥匹配。故推荐存在User目录下吧。</p>
 <p>hub上，可以图形化地为账号和仓库配置公匙，在设置里找找就行</p>
-<h3 id="_2">初始化本地仓库并推送到远程端</h3>
-<h3 id="_3">本地仓库初始化：</h3>
-<pre><code class="language-matlab">git init    %初始化本地仓库 cmd中，% 是注释符
-git branch  -M [master] lctee/lchub %branch：分支命令 [-M]参数： 将[]分支重命名
-git add *   %添加工作区所有文件的&quot;变化增量&quot;到暂存区中
-git commit -m [message]    %提交暂存区的所有修改，作为仓库的一个版本记录
-</code></pre>
-<h3 id="_4">推送到到远程仓库</h3>
+<h3 id="_2">初始化本地仓库并推送到远程端<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">本地仓库初始化：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="s">init</span><span class="w">    </span><span class="s">%初始化本地仓库</span><span class="w"> </span><span class="s">cmd中，%</span><span class="w"> </span><span class="s">是注释符</span>
+<span class="n">git</span><span class="w"> </span><span class="s">branch</span><span class="w">  </span><span class="o">-</span><span class="n">M</span><span class="w"> </span><span class="p">[</span><span class="n">master</span><span class="p">]</span><span class="w"> </span><span class="n">lctee</span><span class="o">/</span><span class="n">lchub</span><span class="w"> </span><span class="c">%branch：分支命令 [-M]参数： 将[]分支重命名</span>
+<span class="n">git</span><span class="w"> </span><span class="s">add</span><span class="w"> </span><span class="o">*</span><span class="w">   </span><span class="c">%添加工作区所有文件的&quot;变化增量&quot;到暂存区中</span>
+<span class="n">git</span><span class="w"> </span><span class="s">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="p">[</span><span class="n">message</span><span class="p">]</span><span class="w">    </span><span class="c">%提交暂存区的所有修改，作为仓库的一个版本记录</span>
+</code></pre></div>
+
+<h3 id="_4">推送到到远程仓库<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>若远程仓库为空，为根据['master']参数创建初始分支</p>
-<pre><code class="language-cpp">git remote add [gitee/github] http/ssh.git  %新建远程仓库
-git push -u lchub github 'master'  %推送[本地分支]到[远程仓库]的[远程分支]，并设置好此本地分支的默认远程分支 -u:updata 
-</code></pre>
-<h3 id="_5">多分支推送多仓库</h3>
-<pre><code class="language-matlab">git branch lctee  %创建新的分支
-git checkout lctee %切换分支
+<div class="codehilite"><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="p">[</span><span class="n">gitee</span><span class="o">/</span><span class="n">github</span><span class="p">]</span><span class="w"> </span><span class="n">http</span><span class="o">/</span><span class="n">ssh</span><span class="p">.</span><span class="n">git</span><span class="w">  </span><span class="o">%</span><span class="n">新建远程仓库</span>
+<span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">lchub</span><span class="w"> </span><span class="n">github</span><span class="w"> </span><span class="err">&#39;</span><span class="n">master</span><span class="err">&#39;</span><span class="w">  </span><span class="o">%</span><span class="n">推送</span><span class="p">[</span><span class="n">本地分支</span><span class="p">]</span><span class="n">到</span><span class="p">[</span><span class="n">远程仓库</span><span class="p">]</span><span class="n">的</span><span class="p">[</span><span class="n">远程分支</span><span class="p">]</span><span class="err">，</span><span class="n">并设置好此本地分支的默认远程分支</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="o">:</span><span class="n">updata</span><span class="w"> </span>
+</code></pre></div>
 
-%设置此分支连接远程分支
-git branch --track %启动分支追踪模式 
-%&lt;远程主机/远程分支&gt;
-git branch --set-upstream-to gitee/master  %建立本地分支到远程分支的持久关联
+<h3 id="_5">多分支推送多仓库<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="s">branch</span><span class="w"> </span><span class="s">lctee</span><span class="w">  </span><span class="s">%创建新的分支</span>
+<span class="n">git</span><span class="w"> </span><span class="s">checkout</span><span class="w"> </span><span class="s">lctee</span><span class="w"> </span><span class="s">%切换分支</span>
 
-%拉取远程分支，并生成分支合并(远程与本地)工作流，
-git pull gitee [master] : [lctee]   %设定好当前分支和追踪分支后，后两个参数可以不填
-%审阅代码冲突
-%合并完成后，可以向远程push了
-%&lt;远程主机名&gt; &lt;本地commit&gt;[:&lt;远程分支名&gt;] 远程分支同名或已设置追踪时，可省略。
-git push -u gitee lctee[:'master']  
-%-u参数：推送并执行--set-upstream-to，建立本地分支到远程分支的持久关联
-</code></pre>
+<span class="c">%设置此分支连接远程分支</span>
+<span class="n">git</span><span class="w"> </span><span class="s">branch</span><span class="w"> </span><span class="o">--</span><span class="n">track</span><span class="w"> </span><span class="c">%启动分支追踪模式 </span>
+<span class="c">%&lt;远程主机/远程分支&gt;</span>
+<span class="n">git</span><span class="w"> </span><span class="s">branch</span><span class="w"> </span><span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">upstream</span><span class="o">-</span><span class="n">to</span><span class="w"> </span><span class="n">gitee</span><span class="o">/</span><span class="n">master</span><span class="w">  </span><span class="c">%建立本地分支到远程分支的持久关联</span>
+
+<span class="c">%拉取远程分支，并生成分支合并(远程与本地)工作流，</span>
+<span class="n">git</span><span class="w"> </span><span class="s">pull</span><span class="w"> </span><span class="s">gitee</span><span class="w"> </span><span class="s">[master]</span><span class="w"> </span><span class="s">:</span><span class="w"> </span><span class="s">[lctee]</span><span class="w">   </span><span class="s">%设定好当前分支和追踪分支后，后两个参数可以不填</span>
+<span class="c">%审阅代码冲突</span>
+<span class="c">%合并完成后，可以向远程push了</span>
+<span class="c">%&lt;远程主机名&gt; &lt;本地commit&gt;[:&lt;远程分支名&gt;] 远程分支同名或已设置追踪时，可省略。</span>
+<span class="n">git</span><span class="w"> </span><span class="s">push</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">gitee</span><span class="w"> </span><span class="n">lctee</span><span class="p">[:</span><span class="s">&#39;master&#39;</span><span class="p">]</span><span class="w">  </span>
+<span class="c">%-u参数：推送并执行--set-upstream-to，建立本地分支到远程分支的持久关联</span>
+</code></pre></div>
+
 <p><img alt="image-20230415134158863" src="https://s2.loli.net/2023/04/15/bym8UlS4Xqz5Hpu.png" /></p>
 <p>其中，push内容为本次的commit。</p>
-<h2 id="_6">仓库同步命令手册</h2>
-<h3 id="git-remote">远程仓库管理 git remote</h3>
+<h2 id="_6">仓库同步命令手册<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="git-remote">远程仓库管理 git remote<a class="headerlink" href="#git-remote" title="Permanent link">&para;</a></h3>
 <p><a href="https://git-scm.com/book/zh/v2/Git-基础-远程仓库的使用">Git - 远程仓库的使用 (git-scm.com)</a></p>
 <ul>
 <li><code>git remote show [gitee]</code>   展示远程仓库信息  </li>
 </ul>
 <p><img alt="image-20230415135039561" src="https://s2.loli.net/2023/04/15/TdQjqFXMVgHs7v9.png" /></p>
 <p><code>gir remote add/rm/rename</code> 增删改远程仓库</p>
-<h3 id="git-branchgit-checkout-branch">分支管理     git branch、git checkout [branch]</h3>
+<h3 id="git-branchgit-checkout-branch">分支管理     git branch、git checkout [branch]<a class="headerlink" href="#git-branchgit-checkout-branch" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><code>git branch</code> 查看仓库下所有分支</p>
@@ -156,7 +1056,7 @@ git push -u gitee lctee[:'master']
 <li><code>git branch --track/--untrack</code> 配置追踪模式</li>
 <li><code>git chechkout [branch]</code> checkout作用于分支的语法，切换分支</li>
 </ul>
-<h3 id="git-fetchpull">分支拉取与合并冲突 git fetch/pull</h3>
+<h3 id="git-fetchpull">分支拉取与合并冲突 git fetch/pull<a class="headerlink" href="#git-fetchpull" title="Permanent link">&para;</a></h3>
 <p><strong>拉取分支最近一次修改事件</strong></p>
 <p><code>git fetch [github master]</code> 仅拉取文件，不执行合并工作流 </p>
 <p><code>git merge</code> 合并，略</p>
@@ -164,7 +1064,7 @@ git push -u gitee lctee[:'master']
 <p>代码冲突审阅流程：<code>git status</code>粗略对比文件增量差异；</p>
 <p>git pull 后，拉取到了一个新的commit 版本并将其与本地工作区文件合并，冲突部分会被修改称带冲突标记<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>、<code>=======</code>和<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>的样式，用户可用冲突审阅工具或记事重新修改文件，完成冲突合并操作。</p>
 <p>此后使用 git add将增量变化添加到暂存区。</p>
-<h3 id="gitignore">.gitignore</h3>
+<h3 id="gitignore">.gitignore<a class="headerlink" href="#gitignore" title="Permanent link">&para;</a></h3>
 <p>您好，这是必应。您想要查看当前被.gitignore忽略的文件，有以下几种方法：</p>
 <ul>
 <li><a href="about:blank#">您可以使用 <code>git status</code> 命令来查看当前状态，其中忽略的文件将会被列为未被跟踪（untracked）的文件</a><a href="https://bing.com/search?q=git+bash+查看当前被忽略的文件">1</a><a href="https://geek-docs.com/git/git-questions/318_git_git_command_to_show_which_specific_files_are_ignored_by_gitignore.html">2</a>。</li>
@@ -177,7 +1077,7 @@ git push -u gitee lctee[:'master']
 <p>/ARM Cortex-M3与Cortex-M4权威指南-ZH.pdf</p>
 <p>/物联网传感器技术与应用.pdf`</p>
 <p>希望这些方法能够帮助您解决问题。如果您还有其他问题，欢迎继续提问。😊</p>
-<h2 id="git">GIT工作模型 工作区 暂存区 版本库</h2>
+<h2 id="git">GIT工作模型 工作区 暂存区 版本库<a class="headerlink" href="#git" title="Permanent link">&para;</a></h2>
 <p><img alt="image-20230726213659812" src="https://s2.loli.net/2023/07/26/AsGk9nlPBychrSa.png" /></p>
 <p><strong>工作区</strong></p>
 <p>本地仓库的实际项目文件。</p>
@@ -188,9 +1088,9 @@ git push -u gitee lctee[:'master']
 <p>或者使用 git checkout 命令从版本库中检出文件到工作区。</p>
 <p><strong>工作流程</strong></p>
 <p>GIT 的工作流程是这样的：您在工作区中修改或创建文件，然后使用 git add 命令将文件的增量快照（即相对于上一次提交的修改部分）添加到暂存区，最后使用 git commit 命令将暂存区中的所有增量快照转换为一个永久的版本记录，并保存到版本库中。</p>
-<h2 id="_7">版本控制命令手册</h2>
+<h2 id="_7">版本控制命令手册<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>首先要摒弃git是为远程仓库服务的挂念。git的一切命令基于本地的分布式版本控制需求。</p>
-<h3 id="git-addrmcommit"><strong>git add/rm/commit</strong></h3>
+<h3 id="git-addrmcommit"><strong>git add/rm/commit</strong><a class="headerlink" href="#git-addrmcommit" title="Permanent link">&para;</a></h3>
 <p><code>git add</code> 为添加工作区文件的<strong>增量快照（即文件的改动部分）</strong>到暂存区中。</p>
 <p><code>git rm</code>将文件的暂存区增量和工作区均删除；</p>
 <p><code>git rm --cached</code>不记录这部分变化,（距上一个commit的工作区变更）。仅删除残存区变化。</p>
@@ -203,7 +1103,7 @@ git push -u gitee lctee[:'master']
 <li><code>-C/c &lt;commit&gt;</code> 复用某次提交的附带信息。区别为是否再启动编辑器修改日志信息</li>
 <li><code>git commit -m &lt;msg&gt;</code> 为本次提交附带日志信息。</li>
 </ul>
-<h3 id="git-tag"><strong>git tag</strong></h3>
+<h3 id="git-tag"><strong>git tag</strong><a class="headerlink" href="#git-tag" title="Permanent link">&para;</a></h3>
 <p>git tag是一个git命令，用于给仓库中的某个提交打上标签，以示重要或者标记一个版本。git tag支持两种类型的标签：<strong>轻量级标签（lightweight）</strong>和<strong>附注标签（annotated</strong>）。<strong>轻量级标签只是一个指向特定提交的引用，不包含任何额外的信息。</strong>附注标签是一个独立的对象，包含了标签名、消息、作者、日期等信息，还可以用GPG签名和验证。</p>
 <ul>
 <li>git tag的常用参数有以下几个：</li>
@@ -212,7 +1112,7 @@ git push -u gitee lctee[:'master']
 <li><code>-m 或 --message</code>：指定创建附注标签时的消息，可以和-a选项一起使用。例如，<code>git tag -a v1.0 -m "Version 1.0"</code>。</li>
 <li><code>-d 或 --delete</code>：删除一个或多个已有的本地标签，需要提供一个或多个标签名。例如，git tag -d v1.0会删除v1.0这个本地标签。</li>
 </ul>
-<h3 id="git-restore">git restore</h3>
+<h3 id="git-restore">git restore<a class="headerlink" href="#git-restore" title="Permanent link">&para;</a></h3>
 <p>git restore用以从一个恢复原回复工作区指定文件，将其回滚到指定的commit或index。</p>
 <p><a href="https://www.cnblogs.com/teach/p/13997323.html">可以使用<code>--source</code>或者<code>-s</code>选项来指定恢复源</a><a href="https://www.cnblogs.com/teach/p/13997323.html">1</a>，默认为最近一次的commit，暨HEAD指针 </p>
 <p><strong>git restore <file_name></strong>：将丢弃工作区的未保存修改(未 <code>git add</code>),回滚到指定的恢复原。（<strong>包括对文件的增删修改</strong>）</p>
@@ -223,7 +1123,7 @@ git push -u gitee lctee[:'master']
 <li><code>–source &lt;src&gt;</code>：恢复文件的特定修订版本。默认情况下，文件将恢复到其最后提交的状态（或者只是取消暂存）。–source选项允许您在特定修订版本处恢复文件。</li>
 <li><code>–patch</code>：允许您选择要恢复的单个块。Git以交互方式逐步执行更改中的所有单独块，并询问您是否要丢弃/取消暂存每个块。请注意，–patch可以接受没有路径规范，并将提示恢复所有修改过的路径。</li>
 </ul>
-<h3 id="git-checkout">git checkout</h3>
+<h3 id="git-checkout">git checkout<a class="headerlink" href="#git-checkout" title="Permanent link">&para;</a></h3>
 <p>“签出”语法，有两种常见复用</p>
 <ul>
 <li><code>git checkout &lt;branchName&gt;</code>切换分支;不带具体的文件路径时，用于修改head当前指向的分支</li>
@@ -236,7 +1136,7 @@ git push -u gitee lctee[:'master']
 <li><code>-b</code> 创建分支并切换。<code>git branch &lt;new&gt; ;git checkout &lt;new&gt;</code></li>
 </ul>
 <p><strong>总之，就是让这个工作区文件回滚到最近一次<code>git commit</code>或<code>git add</code>时的状态。</strong></p>
-<h3 id="git-reset">git reset</h3>
+<h3 id="git-reset">git reset<a class="headerlink" href="#git-reset" title="Permanent link">&para;</a></h3>
 <p>操作对象：head指针。修改改head指向commit，回滚到以往的commit。同时根据修改head后，<strong>是否级联修改stage、workspace，</strong>可进一步的细分成三种模式hard、sort、mixed（默认），如下图所示：</p>
 <ul>
 <li>commit：是指respoistory中每次保存（提交）后的结果，指向一个完整的版本记录</li>
@@ -253,69 +1153,71 @@ git push -u gitee lctee[:'master']
 </li>
 </ul>
 <p>会重置工作区，作用在文件上，用于项目的版本回滚。</p>
-<h2 id="_8">应用札记</h2>
-<h3 id="_9">大文件限制</h3>
+<h2 id="_8">应用札记<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">大文件限制<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>解决方案如下脚本：自动搜索项目文件，将大于50M的文件写入某配置文件。（忽略 或 大文件托管）</p>
-<pre><code class="language-sh">type nul &gt;.gitignore
-echo &quot;.gitignore&quot; &gt;&gt;.gitignore
-echo &quot;/large-file-ignore.sh&quot; &gt;&gt;.gitignore
-## 查找大于 50MB 的文件并将它们的相对路径写入 .gitattributes 文件中
-find . -type f -not -path './.git/*' -size +50M -exec sh -c 'echo &quot;/$(realpath --relative-to=. &quot;{}&quot;) &quot; &gt;&gt; .gitignore' \;
+<div class="codehilite"><pre><span></span><code><span class="nb">type</span><span class="w"> </span>nul<span class="w"> </span>&gt;.gitignore
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;.gitignore&quot;</span><span class="w"> </span>&gt;&gt;.gitignore
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;/large-file-ignore.sh&quot;</span><span class="w"> </span>&gt;&gt;.gitignore
+<span class="c1">## 查找大于 50MB 的文件并将它们的相对路径写入 .gitattributes 文件中</span>
+find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-not<span class="w"> </span>-path<span class="w"> </span><span class="s1">&#39;./.git/*&#39;</span><span class="w"> </span>-size<span class="w"> </span>+50M<span class="w"> </span>-exec<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;/$(realpath --relative-to=. &quot;{}&quot;) &quot; &gt;&gt; .gitignore&#39;</span><span class="w"> </span><span class="se">\;</span>
 
-#type nul &gt;.gitattributes
-## 查找大于 50MB 的文件并将它们的相对路径写入 .gitattributes 文件中
-#find . -type f -not -path './.git/*' -size +50M -exec sh -c 'echo &quot;/$(realpath --relative-to=. &quot;{}&quot;) filter=lfs diff=lfs merge=lfs -text&quot; &gt;&gt; .gitattributes' \;
+<span class="c1">#type nul &gt;.gitattributes</span>
+<span class="c1">## 查找大于 50MB 的文件并将它们的相对路径写入 .gitattributes 文件中</span>
+<span class="c1">#find . -type f -not -path &#39;./.git/*&#39; -size +50M -exec sh -c &#39;echo &quot;/$(realpath --relative-to=. &quot;{}&quot;) filter=lfs diff=lfs merge=lfs -text&quot; &gt;&gt; .gitattributes&#39; \;</span>
 
-#git lfs install
-#git add .gitattributes
+<span class="c1">#git lfs install</span>
+<span class="c1">#git add .gitattributes</span>
+</code></pre></div>
 
 
-</code></pre>
-              
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../VSC%E6%9C%AD%E8%AE%B0/" class="btn btn-neutral float-right" title="vscode">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
+          
           
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../VSC%E6%9C%AD%E8%AE%B0/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>
